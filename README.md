@@ -2,8 +2,6 @@
 
 *An AI-assisted proof of the sharp form of Aoki’s Question 2.14, with a Lean formalization.*
 
-The expanded, reader-friendly paper is available as a [compiled PDF](paper/output/pdf/aoki_cup_powers.pdf), with [LaTeX source](paper/aoki_cup_powers.tex) and [build instructions](paper/README.md).
-
 ## 1. Aoki’s question
 
 In *On cohomology of locally profinite sets*, Aoki proves that, for every $`n\geq 0`$, there is a locally profinite space of cardinality $`\aleph_{2n+1}`$ carrying classes $`\eta_0,\ldots,\eta_n\in H^1(U;\mathbf F_2)`$ with nonzero product. He then asks:
@@ -555,7 +553,7 @@ lake env lean AxiomAudit.lean
 
 The aggregate [Aoki.lean](lean/Aoki.lean) imports the complete local development: 64 modules under the Aoki directory, or 65 modules including the aggregate itself. The complete development builds, and [AxiomAudit.lean](lean/AxiomAudit.lean) reports only Lean’s standard axioms—propositional extensionality, classical choice, and quotient soundness—for the main statements and their principal bridges. There are no proof placeholders or added mathematical axioms. The commands and audit output are recorded in [verification.txt](lean/verification.txt).
 
-This repository includes the exposition, Lean sources, pinned dependency manifest, and accompanying paper. Build caches are excluded. The [Lean project guide](lean/README.md) gives the source organization and build instructions. [GitHub Actions](.github/workflows/lean.yml) is configured to build the development and audit its axioms.
+This repository includes the exposition, Lean sources, and pinned dependency manifest. Build caches are excluded. The [Lean project guide](lean/README.md) gives the source organization and build instructions. [GitHub Actions](.github/workflows/lean.yml) is configured to build the development and audit its axioms.
 
 ## References
 

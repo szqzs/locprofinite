@@ -48,6 +48,6 @@ Source and dependency audit:
 Standalone repository verification (2026-09-17):
 - Fresh local module build: lake build; successful, 2456 jobs.
 - AxiomAudit.lean rerun: all 17 audited declarations use only the three standard axioms above.
-- All 119 relative documentation links resolve.
-- Lean sources and the previously reviewed paper PDF match the original verified project.
+- All 113 relative documentation links resolve.
+- Lean sources match the original verified project.
 - GitHub Actions is configured to build and audit the Aoki namespace.
