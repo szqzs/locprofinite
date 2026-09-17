@@ -1,0 +1,53 @@
+Aoki Question 2.14: complete theorem verification
+Date: 2026-09-17
+Lean: v4.31.0
+Mathlib commit: fabf563a7c95a166b8d7b6efca11c8b4dc9d911f
+
+$ lake build
+✔ [2446/2456] Built Aoki.Cech.ModuleSheafResolution (6.0s)
+✔ [2447/2456] Built Aoki.Cech.ModuleComparison (17s)
+✔ [2448/2456] Built Aoki.Cech.ScalarComparison (4.5s)
+✔ [2449/2456] Built Aoki.Sheaf.ModuleConstantComparison (5.1s)
+✔ [2450/2456] Built Aoki.Cech.CupExt (6.5s)
+✔ [2451/2456] Built Aoki.Cech.CupComparison (3.9s)
+✔ [2452/2456] Built Aoki.Cech.CupCohomology (16s)
+✔ [2453/2456] Built Aoki.Cech.CupNonvanishing (4.6s)
+✔ [2454/2456] Built Aoki.Main (2.9s)
+✔ [2455/2456] Built Aoki (2.0s)
+Build completed successfully (2456 jobs).
+Exit code: 0
+
+$ lake env lean AxiomAudit.lean
+'Aoki.aoki_question_2_14' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Aoki.aoki_question_2_14_minimality' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Aoki.aoki_example_cohomology_above' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Aoki.Cech.cupPower_degreeOneClass_top' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Aoki.Cech.aleph_cupPower_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Aoki.Cech.cupPower_next_eq_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Aoki.Cech.cupCohomologyAddEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Aoki.Cech.yonedaPower_cupExtClass' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Aoki.Cech.cupIterate_comparison' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Aoki.Cech.aleph_topPowerClass_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Aoki.Cech.freeOpenProjectiveResolution' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Aoki.Cech.freeOpenModuleProjectiveResolution' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Aoki.freeOpen_iSup_projectiveDimensionLE' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Aoki.Geometry.mk_U' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Aoki.Geometry.weight_U' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Aoki.aleph_nondecomposition' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Aoki.almostConstant_iff_exists_continuous_extension' depends on axioms: [propext, Classical.choice, Quot.sound]
+Exit code: 0
+
+Source and dependency audit:
+- All 65 local modules are transitively imported by Aoki.lean; no orphan modules.
+- 7,302 lines of Lean source in the imported local development.
+- Comment/string-aware source scan: no proof placeholders, custom axioms, unsafe code, or identified trust-bypass commands.
+- All nine dependency repositories match lake-manifest.json and have clean source checkouts.
+- Mathlib HEAD matches the pinned commit; runtime Lean and both toolchain files agree on v4.31.0.
+- The portable source archive excludes .lake and its absolute local cache symlink.
+
+Standalone repository verification (2026-09-17):
+- Fresh local module build: lake build; successful, 2456 jobs.
+- AxiomAudit.lean rerun: all 17 audited declarations use only the three standard axioms above.
+- All 119 relative documentation links resolve.
+- Lean sources and the previously reviewed paper PDF match the original verified project.
+- GitHub Actions is configured to build and audit the Aoki namespace.

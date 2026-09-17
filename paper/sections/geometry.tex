@@ -1,0 +1,118 @@
+\section{The space and its compact-open pieces}
+\label{sec:geometry}
+
+Fix \(r\geq1\). Choose discrete sets \(A_i\) with
+\(|A_i|=\aleph_i\), for \(0\leq i\leq r\), and set
+
+\[
+D_i=A_i\times\F,
+\qquad K_i=D_i\sqcup\{\infty_i\},
+\qquad K=\prod_{i=0}^{r}K_i.
+\]
+
+Give \(K_i\) the one-point compactification topology: every point of
+\(D_i\) is isolated, and the neighborhoods of \(\infty_i\) contain
+all but finitely many points of \(D_i\). The spaces \(K_i\) and their
+finite product \(K\) are profinite.
+
+Let \(\tau\) flip the bit in every finite coordinate and fix each
+point at infinity:
+
+\[
+\tau(a,s)=(a,s+1),\qquad \tau(\infty_i)=\infty_i.
+\]
+
+This defines a continuous involution of \(K\). Its only fixed point
+is \(p=(\infty_0,\ldots,\infty_r)\), because any finite coordinate
+changes its bit. Write
+
+\[
+q:K\longrightarrow\overline K=K/\langle\tau\rangle,
+\qquad U_r=\overline K\setminus\{q(p)\}.
+\]
+
+Taking the compact quotient first makes the topology of the example
+particularly transparent. The quotient is compact Hausdorff: its orbit
+relation is the union of the diagonal and the graph of a homeomorphism,
+hence is closed. It is also zero-dimensional. Indeed, in the inverse
+image of any open neighborhood of an orbit, choose a clopen neighborhood
+of one representative; its union with its translate is invariant and
+clopen, and descends to a clopen neighborhood in the quotient. The
+orbit map is open, since the saturation of an open set \(O\) is
+\(O\cup\tau(O)\). Thus \(\overline K\) is profinite and \(U_r\)
+is locally profinite Hausdorff.\leanmark{construction}
+
+\subsection{Choosing a representative on each chart}
+
+Let \(W_i\subseteq U_r\) consist of the orbits whose \(i\)-th
+coordinate is finite. These opens cover \(U_r\): the only orbit with
+no finite coordinate was removed. On \(W_i\), each orbit has exactly
+one representative whose \(i\)-th bit is zero. This representative
+depends continuously on the orbit, because the bit-zero slice is open
+and the quotient map restricts to an open continuous bijection from
+that slice onto \(W_i\). We call this the \emph{gauge choice} on
+\(W_i\).\leanmark{charts}
+
+\begin{lemma}\label{lem:cells}
+For every nonempty \(I\subseteq\{0,\ldots,r\}\), the intersection
+\(W_I=\bigcap_{i\in I}W_i\) is a disjoint union of compact-open
+subsets of \(U_r\).
+\end{lemma}
+
+\begin{proof}
+Choose an anchor \(a\in I\) and use its gauge choice. Prescribe every
+finite coordinate \((a_i,s_i)\in D_i\) for \(i\in I\), with
+\(s_a=0\), and leave all coordinates outside \(I\) unrestricted.
+This gives a clopen cylinder in \(K\). Its image in the quotient is
+compact and open, and avoids \(q(p)\).
+
+These images are disjoint for distinct prescriptions. If two meet,
+the corresponding representatives either agree or are exchanged by
+\(\tau\). Exchange is impossible because both anchor bits are zero;
+agreement forces identical prescriptions. Every orbit in \(W_I\)
+has one such prescription, so the images cover \(W_I\).
+\end{proof}
+
+These compact-open pieces explain why the cover will compute
+cohomology. The intersections need not themselves be compact; it is
+their decomposition into disjoint compact pieces that matters.
+
+\subsection{Computing cardinality and weight}
+
+\begin{proposition}\label{prop:size}
+The space \(U_r\) satisfies \(|U_r|=w(U_r)=\aleph_r\).
+\end{proposition}
+
+\begin{proof}
+The finite product \(K\) has cardinality \(\aleph_r\), the size of its
+largest factor. A quotient and then a subspace cannot increase
+cardinality, so \(|U_r|\leq\aleph_r\).
+
+For the weight estimate, recall that an infinite compact Hausdorff
+space \(T\) has \(w(T)\leq|T|\). Here is a useful direct proof.
+For each ordered pair of distinct points \(x,y\), choose disjoint
+neighborhoods \(O_{xy}\) of \(x\) and \(V_{xy}\) of \(y\).
+Given an open neighborhood \(N\) of \(x\), finitely many of the \(V_{xy}\)
+cover the compact set \(T\setminus N\). The intersection of the
+corresponding \(O_{xy}\) is contained in \(N\). These finite
+intersections, for all \(x\), form a basis with at most \(|T|\)
+elements.
+
+An open quotient map does not increase weight, because the images of
+basis elements form a basis. Subspaces do not increase weight either.
+Consequently,
+
+\[
+w(U_r)\leq w(\overline K)\leq w(K)\leq\aleph_r.
+\]
+
+For both reverse inequalities, consider the axis whose only finite
+coordinate is the last one. Every orbit there has a unique
+representative with last coordinate \((a,0)\), so the axis is a copy
+of \(A_r\). It is a discrete subspace: the open condition that the
+last base coordinate equal \(a\) isolates its corresponding axis
+point. We obtain \(\aleph_r\) distinct points, and any basis for
+\(U_r\) must contain distinct neighborhoods isolating these points
+in the axis. Thus both cardinality and weight are at least
+\(\aleph_r\).\leanmark{size}
+\end{proof}

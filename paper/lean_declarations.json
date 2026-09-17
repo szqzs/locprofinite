@@ -1,0 +1,560 @@
+[
+  {
+    "file": "Aoki/Main.lean",
+    "line": 31,
+    "declaration": "aoki_question_2_14",
+    "group": "main"
+  },
+  {
+    "file": "Aoki/Main.lean",
+    "line": 47,
+    "declaration": "aoki_question_2_14_minimality",
+    "group": "main"
+  },
+  {
+    "file": "Aoki/Main.lean",
+    "line": 56,
+    "declaration": "aoki_example_cohomology_above",
+    "group": "main"
+  },
+  {
+    "file": "Aoki/Topology/Quotient.lean",
+    "line": 19,
+    "declaration": "CompactProduct",
+    "group": "construction"
+  },
+  {
+    "file": "Aoki/Topology/Quotient.lean",
+    "line": 138,
+    "declaration": "CompactQuotient",
+    "group": "construction"
+  },
+  {
+    "file": "Aoki/Topology/Quotient.lean",
+    "line": 163,
+    "declaration": "U",
+    "group": "construction"
+  },
+  {
+    "file": "Aoki/Topology/Quotient.lean",
+    "line": 73,
+    "declaration": "flip_eq_self_iff",
+    "group": "construction"
+  },
+  {
+    "file": "Aoki/Topology/Quotient.lean",
+    "line": 196,
+    "declaration": "isOpenMap_quotientMap",
+    "group": "construction"
+  },
+  {
+    "file": "Aoki/Sheaf/ChartProjectivity.lean",
+    "line": 37,
+    "declaration": "iSup_chartOpen",
+    "group": "charts"
+  },
+  {
+    "file": "Aoki/Topology/Charts.lean",
+    "line": 86,
+    "declaration": "sliceHomeomorph",
+    "group": "charts"
+  },
+  {
+    "file": "Aoki/Topology/Charts.lean",
+    "line": 126,
+    "declaration": "chartProductHomeomorph",
+    "group": "charts"
+  },
+  {
+    "file": "Aoki/Topology/Intersections.lean",
+    "line": 14,
+    "declaration": "GaugeLabel",
+    "group": "charts"
+  },
+  {
+    "file": "Aoki/Topology/Intersections.lean",
+    "line": 151,
+    "declaration": "cellOpen",
+    "group": "charts"
+  },
+  {
+    "file": "Aoki/Topology/Intersections.lean",
+    "line": 84,
+    "declaration": "cell_pairwiseDisjoint",
+    "group": "charts"
+  },
+  {
+    "file": "Aoki/Topology/Intersections.lean",
+    "line": 92,
+    "declaration": "cells_cover_intersection",
+    "group": "charts"
+  },
+  {
+    "file": "Aoki/Topology/Intersections.lean",
+    "line": 126,
+    "declaration": "isClopen_cell",
+    "group": "charts"
+  },
+  {
+    "file": "Aoki/Topology/Intersections.lean",
+    "line": 130,
+    "declaration": "isCompact_cell",
+    "group": "charts"
+  },
+  {
+    "file": "Aoki/Topology/CompactWeight.lean",
+    "line": 18,
+    "declaration": "weight_le_max_mk",
+    "group": "size"
+  },
+  {
+    "file": "Aoki/Topology/Axis.lean",
+    "line": 37,
+    "declaration": "isEmbedding_axis",
+    "group": "size"
+  },
+  {
+    "file": "Aoki/Topology/GeometrySize.lean",
+    "line": 52,
+    "declaration": "mk_U",
+    "group": "size"
+  },
+  {
+    "file": "Aoki/Topology/GeometrySize.lean",
+    "line": 74,
+    "declaration": "weight_U",
+    "group": "size"
+  },
+  {
+    "file": "Aoki/Topology/Weight.lean",
+    "line": 26,
+    "declaration": "weight",
+    "group": "size"
+  },
+  {
+    "file": "Aoki/Sheaf/FreeOpen.lean",
+    "line": 33,
+    "declaration": "freeOpenHomEquiv",
+    "group": "projectivity"
+  },
+  {
+    "file": "Aoki/Sheaf/FreeOpen.lean",
+    "line": 97,
+    "declaration": "freeOpenTopIso",
+    "group": "projectivity"
+  },
+  {
+    "file": "Aoki/Sheaf/ModuleFreeOpen.lean",
+    "line": 31,
+    "declaration": "freeOpenModuleHomEquiv",
+    "group": "projectivity"
+  },
+  {
+    "file": "Aoki/Sheaf/ModuleFreeOpen.lean",
+    "line": 97,
+    "declaration": "freeOpenModuleTopIso",
+    "group": "projectivity"
+  },
+  {
+    "file": "Aoki/Topology/CompactOpenCovers.lean",
+    "line": 79,
+    "declaration": "exists_compactOpen_disjoint_refinement",
+    "group": "projectivity"
+  },
+  {
+    "file": "Aoki/Sheaf/EpiSections.lean",
+    "line": 70,
+    "declaration": "surjective_sections_of_disjoint_refinements",
+    "group": "projectivity"
+  },
+  {
+    "file": "Aoki/Sheaf/ProjectiveOpen.lean",
+    "line": 41,
+    "declaration": "projective_freeOpen_disjoint_iSup",
+    "group": "projectivity"
+  },
+  {
+    "file": "Aoki/Sheaf/ModuleFreeOpen.lean",
+    "line": 184,
+    "declaration": "projective_freeOpenModule_disjoint_iSup",
+    "group": "projectivity"
+  },
+  {
+    "file": "Aoki/Sheaf/ChartProjectivity.lean",
+    "line": 64,
+    "declaration": "projective_freeOpen_chartIntersection",
+    "group": "projectivity"
+  },
+  {
+    "file": "Aoki/Sheaf/ModuleChartProjectivity.lean",
+    "line": 25,
+    "declaration": "projective_freeOpenModule_chartIntersection",
+    "group": "projectivity"
+  },
+  {
+    "file": "Aoki/Cech/OrderedComplex.lean",
+    "line": 161,
+    "declaration": "orderedComplex",
+    "group": "resolution"
+  },
+  {
+    "file": "Aoki/Cech/OrderedComplex.lean",
+    "line": 178,
+    "declaration": "orderedTerm_isZero",
+    "group": "resolution"
+  },
+  {
+    "file": "Aoki/Cech/OrderedCone.lean",
+    "line": 194,
+    "declaration": "orderedContraction_identity",
+    "group": "resolution"
+  },
+  {
+    "file": "Aoki/Cech/AugmentedCone.lean",
+    "line": 70,
+    "declaration": "orderedContraction_augmentation_identity",
+    "group": "resolution"
+  },
+  {
+    "file": "Aoki/Cech/SheafResolution.lean",
+    "line": 49,
+    "declaration": "freeOpenProjectiveResolution",
+    "group": "resolution"
+  },
+  {
+    "file": "Aoki/Cech/ModuleSheafResolution.lean",
+    "line": 81,
+    "declaration": "freeOpenModuleProjectiveResolution",
+    "group": "resolution"
+  },
+  {
+    "file": "Aoki/Cech/NonzeroClass.lean",
+    "line": 32,
+    "declaration": "quotientIntegralResolution",
+    "group": "cohomology"
+  },
+  {
+    "file": "Aoki/Cech/NonzeroClass.lean",
+    "line": 70,
+    "declaration": "quotient_sheaf_cohomology_eq_zero_above",
+    "group": "cohomology"
+  },
+  {
+    "file": "Aoki/Sheaf/LocallyConstant.lean",
+    "line": 112,
+    "declaration": "constantSheafSectionAddEquiv",
+    "group": "cohomology"
+  },
+  {
+    "file": "Aoki/Cech/Cocycle.lean",
+    "line": 70,
+    "declaration": "transitionOnOpen",
+    "group": "cocycle"
+  },
+  {
+    "file": "Aoki/Cech/Cocycle.lean",
+    "line": 155,
+    "declaration": "transitionCochain",
+    "group": "cocycle"
+  },
+  {
+    "file": "Aoki/Cech/Cocycle.lean",
+    "line": 167,
+    "declaration": "transitionCochain_cocycle",
+    "group": "cocycle"
+  },
+  {
+    "file": "Aoki/Cech/NonzeroClass.lean",
+    "line": 51,
+    "declaration": "degreeOneClass",
+    "group": "cocycle"
+  },
+  {
+    "file": "Aoki/Cech/ModuleComparison.lean",
+    "line": 127,
+    "declaration": "moduleCechHomEquiv_d",
+    "group": "comparison"
+  },
+  {
+    "file": "Aoki/Sheaf/ModuleConstantComparison.lean",
+    "line": 125,
+    "declaration": "freeOpenModuleTopSectionAddEquiv_generator",
+    "group": "comparison"
+  },
+  {
+    "file": "Aoki/Cech/CupCohomology.lean",
+    "line": 86,
+    "declaration": "cupCohomologyAddEquiv",
+    "group": "comparison"
+  },
+  {
+    "file": "Aoki/Cech/CupCohomology.lean",
+    "line": 104,
+    "declaration": "cupCohomologyAddEquiv_extMk",
+    "group": "comparison"
+  },
+  {
+    "file": "Aoki/Cech/CupCohomology.lean",
+    "line": 118,
+    "declaration": "cupProduct",
+    "group": "comparison"
+  },
+  {
+    "file": "Aoki/Sheaf/LocallyConstantScalar.lean",
+    "line": 72,
+    "declaration": "locallyConstantSMul",
+    "group": "cup"
+  },
+  {
+    "file": "Aoki/Cech/CupProduct.lean",
+    "line": 45,
+    "declaration": "cupLift",
+    "group": "cup"
+  },
+  {
+    "file": "Aoki/Cech/CupProduct.lean",
+    "line": 197,
+    "declaration": "cupLift_chain_signed",
+    "group": "cup"
+  },
+  {
+    "file": "Aoki/Cech/CupProduct.lean",
+    "line": 231,
+    "declaration": "ι_cupIterate",
+    "group": "cup"
+  },
+  {
+    "file": "Aoki/Homological/ExtMkComposition.lean",
+    "line": 116,
+    "declaration": "extMk_comp_of_lift",
+    "group": "cup"
+  },
+  {
+    "file": "Aoki/Cech/CupExt.lean",
+    "line": 62,
+    "declaration": "yonedaPower_cupExtClass",
+    "group": "cup"
+  },
+  {
+    "file": "Aoki/Cech/CupComparison.lean",
+    "line": 51,
+    "declaration": "cupIterate_comparison",
+    "group": "cup"
+  },
+  {
+    "file": "Aoki/Cech/CupNonvanishing.lean",
+    "line": 49,
+    "declaration": "cupPower_degreeOneClass_top",
+    "group": "cup"
+  },
+  {
+    "file": "Aoki/OnePoint.lean",
+    "line": 64,
+    "declaration": "almostConstant_of_continuous_onePoint",
+    "group": "boundary"
+  },
+  {
+    "file": "Aoki/Cech/BoundaryObstruction.lean",
+    "line": 142,
+    "declaration": "invariant_deleted_section",
+    "group": "boundary"
+  },
+  {
+    "file": "Aoki/Cech/BoundaryObstruction.lean",
+    "line": 152,
+    "declaration": "along_deleted_section",
+    "group": "boundary"
+  },
+  {
+    "file": "Aoki/Cech/CochainValues.lean",
+    "line": 68,
+    "declaration": "cochainValue_differential",
+    "group": "boundary"
+  },
+  {
+    "file": "Aoki/Thinning.lean",
+    "line": 18,
+    "declaration": "mk_exceptional_first_coordinates_le",
+    "group": "thinning"
+  },
+  {
+    "file": "Aoki/Thinning.lean",
+    "line": 57,
+    "declaration": "exists_fresh_pair",
+    "group": "thinning"
+  },
+  {
+    "file": "Aoki/Cardinals.lean",
+    "line": 45,
+    "declaration": "mk_config",
+    "group": "thinning"
+  },
+  {
+    "file": "Aoki/Cardinals.lean",
+    "line": 62,
+    "declaration": "config_lt_next",
+    "group": "thinning"
+  },
+  {
+    "file": "Aoki/Functions.lean",
+    "line": 67,
+    "declaration": "delta_alternating",
+    "group": "difference"
+  },
+  {
+    "file": "Aoki/Functions.lean",
+    "line": 73,
+    "declaration": "invariant_delta",
+    "group": "difference"
+  },
+  {
+    "file": "Aoki/AlmostConstant.lean",
+    "line": 78,
+    "declaration": "not_flip_sum_one",
+    "group": "difference"
+  },
+  {
+    "file": "Aoki/Nonvanishing.lean",
+    "line": 73,
+    "declaration": "alternating_one_not_boundary",
+    "group": "difference"
+  },
+  {
+    "file": "Aoki/Nonvanishing.lean",
+    "line": 51,
+    "declaration": "boundary_delta",
+    "group": "difference"
+  },
+  {
+    "file": "Aoki/Nonvanishing.lean",
+    "line": 120,
+    "declaration": "aleph_nondecomposition",
+    "group": "difference"
+  },
+  {
+    "file": "Aoki/Cech/CochainValues.lean",
+    "line": 140,
+    "declaration": "aleph_powerCochain_not_boundary",
+    "group": "nonzero"
+  },
+  {
+    "file": "Aoki/Cech/NonzeroClass.lean",
+    "line": 62,
+    "declaration": "aleph_topPowerClass_ne_zero",
+    "group": "nonzero"
+  },
+  {
+    "file": "Aoki/Cech/CupNonvanishing.lean",
+    "line": 58,
+    "declaration": "aleph_cupPower_ne_zero",
+    "group": "nonzero"
+  },
+  {
+    "file": "Aoki/Cech/CupNonvanishing.lean",
+    "line": 66,
+    "declaration": "cupPower_next_eq_zero",
+    "group": "nonzero"
+  },
+  {
+    "file": "Aoki/Homological/TransfiniteDimension.lean",
+    "line": 24,
+    "declaration": "extOne_vanish_iff_surjective_comp",
+    "group": "transfinite"
+  },
+  {
+    "file": "Aoki/Homological/TransfiniteDimension.lean",
+    "line": 86,
+    "declaration": "extOne_vanish_of_transfinite",
+    "group": "transfinite"
+  },
+  {
+    "file": "Aoki/Homological/TransfiniteDimension.lean",
+    "line": 107,
+    "declaration": "ext_succ_vanish_of_transfinite",
+    "group": "transfinite"
+  },
+  {
+    "file": "Aoki/Homological/TransfiniteDimension.lean",
+    "line": 134,
+    "declaration": "hasProjectiveDimensionLE_of_transfinite",
+    "group": "transfinite"
+  },
+  {
+    "file": "Aoki/Sheaf/ProjectiveOpen.lean",
+    "line": 52,
+    "declaration": "projective_freeOpen_countable_iSup",
+    "group": "cover-bound"
+  },
+  {
+    "file": "Aoki/Sheaf/FreeOpenColimit.lean",
+    "line": 57,
+    "declaration": "freeOpenUnionCoconeIsColimit",
+    "group": "cover-bound"
+  },
+  {
+    "file": "Aoki/Sheaf/FreeOpenFiltration.lean",
+    "line": 74,
+    "declaration": "initialFreeOpenFiltration_continuous",
+    "group": "cover-bound"
+  },
+  {
+    "file": "Aoki/Sheaf/FreeOpenExact.lean",
+    "line": 64,
+    "declaration": "freeOpenMayerVietoris_shortExact",
+    "group": "cover-bound"
+  },
+  {
+    "file": "Aoki/Sheaf/FreeOpenExact.lean",
+    "line": 70,
+    "declaration": "freeOpenUnionQuotientIso",
+    "group": "cover-bound"
+  },
+  {
+    "file": "Aoki/Sheaf/CardinalDimension.lean",
+    "line": 54,
+    "declaration": "freeOpen_iSup_projectiveDimensionLE",
+    "group": "cover-bound"
+  },
+  {
+    "file": "Aoki/Sheaf/CardinalDimension.lean",
+    "line": 111,
+    "declaration": "sheaf_cohomology_eq_zero_of_compactOpen_cover_cardinal",
+    "group": "cover-bound"
+  },
+  {
+    "file": "Aoki/Topology/Weight.lean",
+    "line": 93,
+    "declaration": "exists_point_indexed_compactOpen_cover",
+    "group": "minimality"
+  },
+  {
+    "file": "Aoki/Topology/Weight.lean",
+    "line": 128,
+    "declaration": "mk_compactOpens_le_weight",
+    "group": "minimality"
+  },
+  {
+    "file": "Aoki/Sheaf/CardinalDimension.lean",
+    "line": 149,
+    "declaration": "sheaf_cohomology_eq_zero_of_cardinal_lt_aleph",
+    "group": "minimality"
+  },
+  {
+    "file": "Aoki/Sheaf/CardinalDimension.lean",
+    "line": 161,
+    "declaration": "sheaf_cohomology_eq_zero_of_weight_lt_aleph",
+    "group": "minimality"
+  },
+  {
+    "file": "Aoki/Cech/Cocycle.lean",
+    "line": 119,
+    "declaration": "constantF2Sheaf",
+    "group": "cocycle"
+  },
+  {
+    "file": "Aoki/Cech/CupCohomology.lean",
+    "line": 127,
+    "declaration": "cupPower",
+    "group": "comparison"
+  }
+]

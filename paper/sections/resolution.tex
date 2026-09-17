@@ -1,0 +1,120 @@
+\section{A finite resolution that computes cohomology}
+\label{sec:resolution}
+
+The geometry above serves two purposes. It bounds the size of the
+space, and it provides a cover with projective free sheaves on all its
+intersections. We spell out the latter point so that the passage from
+functions to ordinary sheaf cohomology is explicit.
+
+\subsection{Free sheaves on opens}
+
+For an open \(W\) in a space \(X\), let \(P(W)\) be the free
+abelian sheaf represented by \(W\). Concretely, sheafify the free
+abelian presheaf on the representable presheaf of \(W\). What we
+use is its natural representing property:
+
+\[
+\Hom(P(W),\mathcal M)\cong\Gamma(W,\mathcal M).
+\]
+
+An inclusion \(V\subseteq W\) induces \(P(V)\to P(W)\),
+and \(P(X)\cong\underline{\Z}_X\). For a commutative ring \(R\),
+write \(P_R(W)\) for the corresponding free sheaf of \(R\)-modules.
+It represents sections in that category, with
+\(P_R(X)\cong\underline R_X\).
+
+\begin{lemma}\label{lem:projective-opens}
+Suppose \(X\) is Hausdorff and totally disconnected. If \(W\) is
+a disjoint union of compact-open subsets of \(X\), then \(P(W)\)
+and \(P_R(W)\) are projective.\leanmark{projectivity}
+\end{lemma}
+
+\begin{proof}
+To prove projectivity, it suffices to lift a section over \(W\)
+through an epimorphism of sheaves. Epimorphisms are locally surjective,
+so local lifts exist. On a compact open \(C\), choose finitely many
+clopen sets refining a local lifting cover. This is possible because
+\(C\) is compact Hausdorff and totally disconnected, hence
+zero-dimensional. Subtract earlier clopen sets from later ones to
+make the finite cover disjoint. The local lifts then glue, with no
+compatibility conditions on overlaps, to a section on \(C\).
+Do this on each compact-open component of \(W\) and glue again.
+The representing property gives projectivity in both coefficient
+categories.
+\end{proof}
+
+\subsection{The ordered complex and its exactness}
+
+For the cover \(W_0,\ldots,W_r\), set
+
+\[
+P_k=\bigoplus_{0\leq i_0<\cdots<i_k\leq r}
+P(W_{i_0}\cap\cdots\cap W_{i_k}).
+\]
+
+Deleting one index enlarges the intersection and induces a map of free
+sheaves. Let the differential be the alternating sum of these maps.
+The augmentation \(P_0\to\underline\Z_{U_r}\) is induced by the
+inclusions of the charts. The usual face-deletion identities imply
+that the differential squares to zero.
+
+\begin{proposition}\label{prop:resolution}
+The augmented complex
+
+\[
+0\longrightarrow P_r\longrightarrow\cdots\longrightarrow P_1
+\longrightarrow P_0\longrightarrow\underline\Z_{U_r}
+\longrightarrow0
+\]
+
+is a projective resolution. Replacing each free integral sheaf by
+its \(R\)-module counterpart gives a projective resolution
+\(P_\bullet^R\to\underline R_{U_r}\).\leanmark{resolution}
+\end{proposition}
+
+\begin{proof}
+All terms are projective by \cref{lem:cells,lem:projective-opens}.
+For exactness, take a stalk at \(x\in U_r\). The stalk of \(P(W)\)
+is zero when \(x\notin W\); if \(x\in V\subseteq W\), the map
+\(P(V)_x\to P(W)_x\) is an isomorphism. These assertions follow
+from the representing property, or from the stalk--skyscraper
+adjunction.
+
+Let \(a\) be the least index with \(x\in W_a\). The surviving
+faces form the simplex of charts containing \(x\), and its
+augmented chain complex contracts to the vertex \(a\). Explicitly,
+prepend \(a\) to an increasing face whose first vertex is larger
+than \(a\), using the inverse of the stalk inclusion; on a face
+starting at \(a\), set the contraction to zero. Faces starting below
+\(a\) have zero stalk. In the alternating boundary formula, deleting
+the inserted vertex gives the original face and all other terms
+cancel in pairs. Thus \(dh+hd=1\), with the augmentation section
+included in degree zero. The augmented stalk complex is exact.
+Exactness of sheaves is detected on stalks. The same contraction works
+for the module sheaves.
+\end{proof}
+
+Applying \(\Hom(-,\mathcal M)\) now computes ordinary sheaf
+cohomology, since
+
+\[
+H^q(U_r;\mathcal M)
+=\Ext^q_{\Sh(U_r;\Ab)}(\underline\Z,\mathcal M).
+\]
+
+This also identifies the cochain complex explicitly: its degree-\(k\)
+term is the product of the section groups on intersections of \(k+1\)
+charts, and its differential is the alternating sum of restrictions.
+In particular, with constant \(\F\) coefficients, these sections are
+locally constant \(\F\)-valued functions. Because there are no faces
+of degree greater than \(r\), we have proved
+
+\[
+H^q(U_r;\mathcal M)=0\qquad(q>r)
+\]
+
+for every abelian coefficient sheaf.\leanmark{cohomology}
+
+The remaining question is whether a particular cochain in the last
+possible degree is a boundary. We first identify that cochain as a
+power of a degree-one class.

@@ -1,0 +1,20 @@
+LaTeX paper verification
+Date: 2026-09-17
+
+Build: sh build.sh
+Compiler: pdfTeX 1.40.25 (TeX Live 2023), latexmk 4.79
+Result: 20-page PDF; successful exit.
+Final LaTeX log: no warnings, undefined references, overfull boxes, or underfull boxes.
+
+Source concordance: all 93 distinct declarations checked against actual source lines.
+All 17 Lean-reference groups are linked from the body.
+All 96 PDF URI actions inspected; relative source links resolve to existing files.
+The PDF contains no unresolved-reference markers or detected malformed Unicode identifier.
+Visual review: all 20 pages rendered and inspected; affected pages rechecked after final edits.
+No clipping, overlaps, or broken formulas were found.
+The main theorem is kept together; source lists and proof sections have legible page transitions.
+
+PDF SHA256: 70b757d27d0af310bd7dc4594568784eb3cebdbfb41ef4ad03edbbf1ae45c4af
+
+This record concerns the paper. Lean source files were unchanged during paper preparation.
+The prior Lean build and axiom-audit output remain in ../lean/verification.txt.

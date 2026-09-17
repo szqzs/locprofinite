@@ -1,0 +1,262 @@
+\section{The universal lower bound}\label{sec:optimality}
+
+The examples constructed above attain the least possible cardinality and
+weight. We prove this by an estimate for arbitrary abelian coefficient
+sheaves, independent of the quotient construction. The relevant invariant
+is the number of compact opens needed to cover a space.
+
+Recall that \(P(W)\) denotes the integral free sheaf represented by an open
+subset \(W\subseteq X\), so that
+
+\[
+\Hom(P(W),\mathcal M)\cong\Gamma(W,\mathcal M).
+\]
+
+In particular, \(P(X)\cong\underline{\Z}_X\). Throughout this section,
+projective dimension is understood in its Ext-vanishing sense:
+\(\pd(P)\leq n\) means that \(\Ext^d(P,M)=0\) for every coefficient object
+\(M\) and every \(d>n\). The category of abelian sheaves has enough
+injectives, so dimension shifting in the coefficient variable is available.
+The indexing begins with countable covers: they already give projective
+free-open sheaves, rather than merely a dimension bound of one. Each passage
+to the next infinite cardinal costs at most one further degree. Keeping
+this starting point explicit will give precisely the lower bound
+\(\aleph_r\) in degree \(r\).
+
+\subsection{Continuous transfinite extensions}
+
+The homological input is a closure property whose proof is worth recording.
+Continuity of the filtration is essential to its use below.
+
+\begin{lemma}\label{lem:transfinite-dimension}
+Let \(\mathcal A\) be an abelian category with enough injectives. Suppose
+\((P_\alpha)_{\alpha\leq\lambda}\) is a well-ordered filtration with
+\(P_0=0\), monomorphic successor maps, and
+
+\[
+P_\delta\cong\mathop{\mathrm{colim}}_{\alpha<\delta}P_\alpha
+\]
+
+at every nonzero limit ordinal \(\delta\leq\lambda\). If each successive
+quotient \(Q_\alpha=P_{\alpha+1}/P_\alpha\) has projective dimension at
+most \(n\), then \(\pd(P_\lambda)\leq n\).
+\end{lemma}
+
+\begin{proof}
+First fix \(Y\in\mathcal A\) and assume only that
+\(\Ext^1(Q_\alpha,Y)=0\) for all \(\alpha<\lambda\). Choose an injective
+presentation
+
+\[
+0\longrightarrow Y\longrightarrow I\xrightarrow{p}C\longrightarrow0.
+\]
+
+The long exact Ext sequence shows that \(\Ext^1(Q,Y)=0\) precisely when
+every map \(Q\to C\) lifts through \(p\). We will prove this lifting
+property for \(P_\lambda\).
+
+Given \(f:P_\lambda\to C\), denote its restriction to \(P_\alpha\) by
+\(f_\alpha\). Construct compatible maps \(g_\alpha:P_\alpha\to I\)
+satisfying \(p g_\alpha=f_\alpha\). There is a unique choice at stage zero.
+At a successor stage, injectivity of \(I\) extends \(g_\alpha\) to a map
+\(h:P_{\alpha+1}\to I\). This extension may not lift \(f_{\alpha+1}\),
+but the discrepancy \(f_{\alpha+1}-ph\) vanishes on \(P_\alpha\).
+Writing \(\pi_\alpha:P_{\alpha+1}\to Q_\alpha\) for the quotient map,
+there is therefore a map \(b:Q_\alpha\to C\) such that
+
+\[
+f_{\alpha+1}-ph=b\pi_\alpha.
+\]
+
+By the assumed Ext vanishing, choose \(\widetilde b:Q_\alpha\to I\)
+with \(p\widetilde b=b\). Then
+\(g_{\alpha+1}=h+\widetilde b\pi_\alpha\) is both an extension of
+\(g_\alpha\) and a lift of \(f_{\alpha+1}\). At a limit stage, the
+compatible earlier lifts induce a map from the colimit. Their identities
+with the restrictions of \(f\) persist by the colimit's universal property.
+This constructs \(g_\lambda\), proving \(\Ext^1(P_\lambda,Y)=0\).
+
+Now fix any \(d>n\) and any coefficient object \(Y\). Choose successive
+injective presentations
+
+\[
+0\longrightarrow Y_j\longrightarrow I_j\longrightarrow Y_{j+1}
+\longrightarrow0,
+\qquad Y_0=Y,
+\qquad 0\leq j<d-1.
+\]
+
+Dimension shifting gives, for every object \(Q\),
+
+\[
+\Ext^d(Q,Y)\cong\Ext^1(Q,Y_{d-1}).
+\]
+
+The same coefficient object \(Y_{d-1}\) works for all successive
+quotients. Their dimension bounds make the right-hand side vanish, so the
+degree-one argument applies. Shifting back gives
+\(\Ext^d(P_\lambda,Y)=0\). Since \(d>n\) and \(Y\) were arbitrary,
+the required projective-dimension bound follows.\leanmark{transfinite}
+\end{proof}
+
+\begin{remark}
+The proof constructs compatible lifts; it does not commute Ext with an
+arbitrary filtered colimit. In particular, the closure statement requires
+no separate assumption that arbitrary filtered colimits are exact.
+\end{remark}
+
+\subsection{Counting compact opens}
+
+\begin{proposition}\label{prop:compact-open-dimension}
+Let \(X\) be Hausdorff and totally disconnected. If an open subset
+\(W\subseteq X\) is a union of at most \(\aleph_n\) compact-open subsets
+of \(X\), then \(\pd(P(W))\leq n\).
+\end{proposition}
+
+\begin{proof}
+We induct on \(n\). For \(n=0\), enumerate the given compact opens as
+\(K_0,K_1,\ldots\), allowing empty terms, and set
+
+\[
+L_j=K_j\setminus\bigcup_{i<j}K_i.
+\]
+
+The earlier union is finite and compact, hence closed in the Hausdorff
+space \(X\); consequently \(L_j\) is open. It is also closed in the
+compact set \(K_j\), since the earlier union is open. Thus the \(L_j\)
+are compact open, pairwise disjoint, and have union \(W\).
+Lemma~\ref{lem:projective-opens} makes \(P(W)\) projective. This includes
+finite and empty covers.
+Concretely, sections through a sheaf epimorphism lift separately on every
+\(L_j\), and the lifts glue without compatibility conditions because the
+pieces are disjoint. This explains why no finiteness condition on the
+disjoint family is needed. Local compactness of the ambient space is not
+required for this step or for the proposition.
+
+Assume the assertion for \(n\). Pad a family of at most
+\(\aleph_{n+1}\) compact opens with empty sets to index it by the initial
+ordinal \(\kappa=\omega_{n+1}\), and put
+
+\[
+W_\alpha=\bigcup_{\beta<\alpha}K_\beta
+\quad(\alpha\leq\kappa),
+\qquad W_\kappa=W.
+\]
+
+These opens give a continuous filtration of free sheaves. Indeed,
+inclusions induce monomorphisms: on stalks the free-open sheaf is \(\Z\)
+inside its representing open and zero outside, and the nonzero inclusion
+maps are identities. Moreover, the free sheaf of a directed union is the
+colimit of the free sheaves of its members. By the representing property,
+this assertion says exactly that compatible sections on the members glue
+uniquely to a section on their union. Hence \(P(W_0)=0\), continuity holds
+at limit ordinals, and the final object is \(P(W)\).
+
+For two opens \(V,T\), the free-open Mayer--Vietoris sequence is
+
+\[
+0\longrightarrow P(V\cap T)
+\longrightarrow P(V)\oplus P(T)
+\longrightarrow P(V\cup T)\longrightarrow0.
+\]
+
+The first map is the signed pair of inclusions, and the second adds the
+inclusions into the union. Exactness can be checked on stalks; on the
+intersection the maps are \(u\mapsto(u,-u)\) and \((v,t)\mapsto v+t\).
+It follows, by taking the quotient by \(P(V)\), that the successive
+quotient \(Q_\alpha=P(W_{\alpha+1})/P(W_\alpha)\) fits into
+
+\[
+0\longrightarrow P(W_\alpha\cap K_\alpha)
+\longrightarrow P(K_\alpha)
+\longrightarrow Q_\alpha\longrightarrow0.
+\]
+
+For every \(\alpha<\kappa\), the initial-ordinal property gives
+\(|\alpha|<\aleph_{n+1}\), hence \(|\alpha|\leq\aleph_n\). Since
+
+\[
+W_\alpha\cap K_\alpha
+=\bigcup_{\beta<\alpha}(K_\beta\cap K_\alpha),
+\]
+
+the induction hypothesis bounds the left-hand term's projective dimension
+by \(n\). The middle term is projective by
+Lemma~\ref{lem:projective-opens}. For \(d>n+1\), the long exact Ext
+sequence identifies \(\Ext^d(Q_\alpha,M)\) with
+\(\Ext^{d-1}(P(W_\alpha\cap K_\alpha),M)\), which vanishes.
+Thus \(\pd(Q_\alpha)\leq n+1\).
+Lemma~\ref{lem:transfinite-dimension} completes the induction.
+Only the size of each proper initial segment of \(\omega_{n+1}\) enters
+the argument. There is no appeal to the continuum hypothesis or to any
+extra cardinal-arithmetic assumption.\leanmark{cover-bound}
+\end{proof}
+
+Taking \(W=X\), the identification \(P(X)\cong\underline{\Z}_X\)
+immediately gives the following consequence.
+
+\begin{corollary}\label{cor:cover-vanishing}
+If a Hausdorff totally disconnected space \(X\) has a compact-open cover
+of cardinality at most \(\aleph_n\), then
+\(H^d(X;\mathcal M)=0\) for every abelian sheaf \(\mathcal M\) and
+every \(d>n\).
+\end{corollary}
+
+\subsection{Cardinality and weight}
+
+\begin{corollary}\label{cor:universal-minimality}
+Let \(V\) be locally compact, Hausdorff, and totally disconnected, let
+\(r\geq1\), and let \(\mathcal M\) be any abelian sheaf on \(V\).
+Then
+
+\[
+H^r(V;\mathcal M)\neq0
+\quad\Longrightarrow\quad
+|V|\geq\aleph_r
+\quad\text{and}\quad
+w(V)\geq\aleph_r.
+\]
+
+\end{corollary}
+
+\begin{proof}
+Such a space has a basis of compact opens. To recall why, given a point
+and an open neighborhood, choose a compact neighborhood inside it. This
+compact Hausdorff totally disconnected subspace is zero-dimensional, so
+it contains a clopen neighborhood of the point lying inside its own
+interior in \(V\). That smaller neighborhood is both open in \(V\) and
+compact. Thus compact opens refine every neighborhood.
+
+Choosing one compact-open
+neighborhood of each point gives a cover with at most \(|V|\) members.
+Thus \(|V|\leq\aleph_n\) implies vanishing above degree \(n\) by
+Corollary~\ref{cor:cover-vanishing}.
+
+For weight, choose a basis \(\mathcal B\) of cardinality \(w(V)\).
+Every compact open is a finite union of basis elements: cover it by basis
+neighborhoods contained in it and use compactness. Choosing one such
+finite description for each compact open gives
+
+\[
+|\operatorname{CompactOpens}(V)|
+\leq\max(\aleph_0,w(V)).
+\]
+
+Indeed, identical finite descriptions have identical unions, so this
+choice is injective into the set of finite subsets of \(\mathcal B\).
+For an infinite basis, that set has the same cardinality as the basis.
+All compact opens together cover \(V\). Therefore \(w(V)\leq\aleph_n\)
+also forces vanishing above degree \(n\); the displayed maximum handles
+finite or empty bases as well.
+
+Finally, a cardinal strictly below \(\aleph_r\), for positive finite
+\(r\), is at most \(\aleph_{r-1}\). Either \(|V|<\aleph_r\) or
+\(w(V)<\aleph_r\) would therefore imply \(H^r(V;\mathcal M)=0\).
+Taking contrapositives proves both inequalities.\leanmark{minimality}
+\end{proof}
+
+A nonzero product of \(r\) degree-one classes is a nonzero degree-\(r\)
+cohomology class, so these inequalities apply to every space considered in
+Aoki's question. The examples of Theorem~\ref{thm:main} attain both bounds
+simultaneously. This proves the asserted optimality for cardinality and
+weight.

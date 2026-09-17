@@ -1,0 +1,263 @@
+\section{Lean source concordance}
+\label{app:lean}
+
+The following entries give the precise source locations for the markers
+in the text. All paths are relative to the \texttt{lean} directory;
+line numbers refer to the accompanying source snapshot. Each file name
+is a link to that file in the distributed project. The declarations are
+grouped by their mathematical role so that a reader can follow one part
+of the argument without reading the entire development.
+
+\leanentry{main}{The assembled theorem}
+\begin{leansources}
+\item \href{../../../lean/Aoki/Main.lean}{\nolinkurl{Aoki/Main.lean}}, line 31:\\*
+\nolinkurl{aoki_question_2_14}.
+\item \href{../../../lean/Aoki/Main.lean}{\nolinkurl{Aoki/Main.lean}}, line 47:\\*
+\nolinkurl{aoki_question_2_14_minimality}.
+\item \href{../../../lean/Aoki/Main.lean}{\nolinkurl{Aoki/Main.lean}}, line 56:\\*
+\nolinkurl{aoki_example_cohomology_above}.
+\end{leansources}
+
+\leanentry{construction}{The punctured involution quotient}
+\begin{leansources}
+\item \href{../../../lean/Aoki/Topology/Quotient.lean}{\nolinkurl{Aoki/Topology/Quotient.lean}}, line 19:\\*
+\nolinkurl{CompactProduct}.
+\item \href{../../../lean/Aoki/Topology/Quotient.lean}{\nolinkurl{Aoki/Topology/Quotient.lean}}, line 138:\\*
+\nolinkurl{CompactQuotient}.
+\item \href{../../../lean/Aoki/Topology/Quotient.lean}{\nolinkurl{Aoki/Topology/Quotient.lean}}, line 163:\\*
+\nolinkurl{U}.
+\item \href{../../../lean/Aoki/Topology/Quotient.lean}{\nolinkurl{Aoki/Topology/Quotient.lean}}, line 73:\\*
+\nolinkurl{flip_eq_self_iff}.
+\item \href{../../../lean/Aoki/Topology/Quotient.lean}{\nolinkurl{Aoki/Topology/Quotient.lean}}, line 196:\\*
+\nolinkurl{isOpenMap_quotientMap}.
+\end{leansources}
+
+\leanentry{charts}{Gauge charts and compact-open cells}
+\begin{leansources}
+\item \href{../../../lean/Aoki/Sheaf/ChartProjectivity.lean}{\nolinkurl{Aoki/Sheaf/ChartProjectivity.lean}}, line 37:\\*
+\nolinkurl{iSup_chartOpen}.
+\item \href{../../../lean/Aoki/Topology/Charts.lean}{\nolinkurl{Aoki/Topology/Charts.lean}}, line 86:\\*
+\nolinkurl{sliceHomeomorph}.
+\item \href{../../../lean/Aoki/Topology/Charts.lean}{\nolinkurl{Aoki/Topology/Charts.lean}}, line 126:\\*
+\nolinkurl{chartProductHomeomorph}.
+\item \href{../../../lean/Aoki/Topology/Intersections.lean}{\nolinkurl{Aoki/Topology/Intersections.lean}}, line 14:\\*
+\nolinkurl{GaugeLabel}.
+\item \href{../../../lean/Aoki/Topology/Intersections.lean}{\nolinkurl{Aoki/Topology/Intersections.lean}}, line 151:\\*
+\nolinkurl{cellOpen}.
+\item \href{../../../lean/Aoki/Topology/Intersections.lean}{\nolinkurl{Aoki/Topology/Intersections.lean}}, line 84:\\*
+\nolinkurl{cell_pairwiseDisjoint}.
+\item \href{../../../lean/Aoki/Topology/Intersections.lean}{\nolinkurl{Aoki/Topology/Intersections.lean}}, line 92:\\*
+\nolinkurl{cells_cover_intersection}.
+\item \href{../../../lean/Aoki/Topology/Intersections.lean}{\nolinkurl{Aoki/Topology/Intersections.lean}}, line 126:\\*
+\nolinkurl{isClopen_cell}.
+\item \href{../../../lean/Aoki/Topology/Intersections.lean}{\nolinkurl{Aoki/Topology/Intersections.lean}}, line 130:\\*
+\nolinkurl{isCompact_cell}.
+\end{leansources}
+
+\leanentry{size}{Cardinality and weight}
+\begin{leansources}
+\item \href{../../../lean/Aoki/Topology/CompactWeight.lean}{\nolinkurl{Aoki/Topology/CompactWeight.lean}}, line 18:\\*
+\nolinkurl{weight_le_max_mk}.
+\item \href{../../../lean/Aoki/Topology/Axis.lean}{\nolinkurl{Aoki/Topology/Axis.lean}}, line 37:\\*
+\nolinkurl{isEmbedding_axis}.
+\item \href{../../../lean/Aoki/Topology/GeometrySize.lean}{\nolinkurl{Aoki/Topology/GeometrySize.lean}}, line 52:\\*
+\nolinkurl{mk_U}.
+\item \href{../../../lean/Aoki/Topology/GeometrySize.lean}{\nolinkurl{Aoki/Topology/GeometrySize.lean}}, line 74:\\*
+\nolinkurl{weight_U}.
+\item \href{../../../lean/Aoki/Topology/Weight.lean}{\nolinkurl{Aoki/Topology/Weight.lean}}, line 26:\\*
+\nolinkurl{weight}.
+\end{leansources}
+
+\leanentry{projectivity}{Represented free sheaves and projectivity}
+\begin{leansources}
+\item \href{../../../lean/Aoki/Sheaf/FreeOpen.lean}{\nolinkurl{Aoki/Sheaf/FreeOpen.lean}}, line 33:\\*
+\nolinkurl{freeOpenHomEquiv}.
+\item \href{../../../lean/Aoki/Sheaf/FreeOpen.lean}{\nolinkurl{Aoki/Sheaf/FreeOpen.lean}}, line 97:\\*
+\nolinkurl{freeOpenTopIso}.
+\item \href{../../../lean/Aoki/Sheaf/ModuleFreeOpen.lean}{\nolinkurl{Aoki/Sheaf/ModuleFreeOpen.lean}}, line 31:\\*
+\nolinkurl{freeOpenModuleHomEquiv}.
+\item \href{../../../lean/Aoki/Sheaf/ModuleFreeOpen.lean}{\nolinkurl{Aoki/Sheaf/ModuleFreeOpen.lean}}, line 97:\\*
+\nolinkurl{freeOpenModuleTopIso}.
+\item \href{../../../lean/Aoki/Topology/CompactOpenCovers.lean}{\nolinkurl{Aoki/Topology/CompactOpenCovers.lean}}, line 79:\\*
+\nolinkurl{exists_compactOpen_disjoint_refinement}.
+\item \href{../../../lean/Aoki/Sheaf/EpiSections.lean}{\nolinkurl{Aoki/Sheaf/EpiSections.lean}}, line 70:\\*
+\nolinkurl{surjective_sections_of_disjoint_refinements}.
+\item \href{../../../lean/Aoki/Sheaf/ProjectiveOpen.lean}{\nolinkurl{Aoki/Sheaf/ProjectiveOpen.lean}}, line 41:\\*
+\nolinkurl{projective_freeOpen_disjoint_iSup}.
+\item \href{../../../lean/Aoki/Sheaf/ModuleFreeOpen.lean}{\nolinkurl{Aoki/Sheaf/ModuleFreeOpen.lean}}, line 184:\\*
+\nolinkurl{projective_freeOpenModule_disjoint_iSup}.
+\item \href{../../../lean/Aoki/Sheaf/ChartProjectivity.lean}{\nolinkurl{Aoki/Sheaf/ChartProjectivity.lean}}, line 64:\\*
+\nolinkurl{projective_freeOpen_chartIntersection}.
+\item \href{../../../lean/Aoki/Sheaf/ModuleChartProjectivity.lean}{\nolinkurl{Aoki/Sheaf/ModuleChartProjectivity.lean}}, line 25:\\*
+\nolinkurl{projective_freeOpenModule_chartIntersection}.
+\end{leansources}
+
+\leanentry{resolution}{The finite projective resolutions}
+\begin{leansources}
+\item \href{../../../lean/Aoki/Cech/OrderedComplex.lean}{\nolinkurl{Aoki/Cech/OrderedComplex.lean}}, line 161:\\*
+\nolinkurl{orderedComplex}.
+\item \href{../../../lean/Aoki/Cech/OrderedComplex.lean}{\nolinkurl{Aoki/Cech/OrderedComplex.lean}}, line 178:\\*
+\nolinkurl{orderedTerm_isZero}.
+\item \href{../../../lean/Aoki/Cech/OrderedCone.lean}{\nolinkurl{Aoki/Cech/OrderedCone.lean}}, line 194:\\*
+\nolinkurl{orderedContraction_identity}.
+\item \href{../../../lean/Aoki/Cech/AugmentedCone.lean}{\nolinkurl{Aoki/Cech/AugmentedCone.lean}}, line 70:\\*
+\nolinkurl{orderedContraction_augmentation_identity}.
+\item \href{../../../lean/Aoki/Cech/SheafResolution.lean}{\nolinkurl{Aoki/Cech/SheafResolution.lean}}, line 49:\\*
+\nolinkurl{freeOpenProjectiveResolution}.
+\item \href{../../../lean/Aoki/Cech/ModuleSheafResolution.lean}{\nolinkurl{Aoki/Cech/ModuleSheafResolution.lean}}, line 81:\\*
+\nolinkurl{freeOpenModuleProjectiveResolution}.
+\end{leansources}
+
+\leanentry{cohomology}{Ordinary cohomology and upper vanishing}
+\begin{leansources}
+\item \href{../../../lean/Aoki/Cech/NonzeroClass.lean}{\nolinkurl{Aoki/Cech/NonzeroClass.lean}}, line 32:\\*
+\nolinkurl{quotientIntegralResolution}.
+\item \href{../../../lean/Aoki/Cech/NonzeroClass.lean}{\nolinkurl{Aoki/Cech/NonzeroClass.lean}}, line 70:\\*
+\nolinkurl{quotient_sheaf_cohomology_eq_zero_above}.
+\item \href{../../../lean/Aoki/Sheaf/LocallyConstant.lean}{\nolinkurl{Aoki/Sheaf/LocallyConstant.lean}}, line 112:\\*
+\nolinkurl{constantSheafSectionAddEquiv}.
+\end{leansources}
+
+\leanentry{cocycle}{The degree-one transition cocycle}
+\begin{leansources}
+\item \href{../../../lean/Aoki/Cech/Cocycle.lean}{\nolinkurl{Aoki/Cech/Cocycle.lean}}, line 70:\\*
+\nolinkurl{transitionOnOpen}.
+\item \href{../../../lean/Aoki/Cech/Cocycle.lean}{\nolinkurl{Aoki/Cech/Cocycle.lean}}, line 155:\\*
+\nolinkurl{transitionCochain}.
+\item \href{../../../lean/Aoki/Cech/Cocycle.lean}{\nolinkurl{Aoki/Cech/Cocycle.lean}}, line 167:\\*
+\nolinkurl{transitionCochain_cocycle}.
+\item \href{../../../lean/Aoki/Cech/NonzeroClass.lean}{\nolinkurl{Aoki/Cech/NonzeroClass.lean}}, line 51:\\*
+\nolinkurl{degreeOneClass}.
+\item \href{../../../lean/Aoki/Cech/Cocycle.lean}{\nolinkurl{Aoki/Cech/Cocycle.lean}}, line 119:\\*
+\nolinkurl{constantF2Sheaf}.
+\end{leansources}
+
+\leanentry{comparison}{The module-to-abelian comparison}
+\begin{leansources}
+\item \href{../../../lean/Aoki/Cech/ModuleComparison.lean}{\nolinkurl{Aoki/Cech/ModuleComparison.lean}}, line 127:\\*
+\nolinkurl{moduleCechHomEquiv_d}.
+\item \href{../../../lean/Aoki/Sheaf/ModuleConstantComparison.lean}{\nolinkurl{Aoki/Sheaf/ModuleConstantComparison.lean}}, line 125:\\*
+\nolinkurl{freeOpenModuleTopSectionAddEquiv_generator}.
+\item \href{../../../lean/Aoki/Cech/CupCohomology.lean}{\nolinkurl{Aoki/Cech/CupCohomology.lean}}, line 86:\\*
+\nolinkurl{cupCohomologyAddEquiv}.
+\item \href{../../../lean/Aoki/Cech/CupCohomology.lean}{\nolinkurl{Aoki/Cech/CupCohomology.lean}}, line 104:\\*
+\nolinkurl{cupCohomologyAddEquiv_extMk}.
+\item \href{../../../lean/Aoki/Cech/CupCohomology.lean}{\nolinkurl{Aoki/Cech/CupCohomology.lean}}, line 118:\\*
+\nolinkurl{cupProduct}.
+\item \href{../../../lean/Aoki/Cech/CupCohomology.lean}{\nolinkurl{Aoki/Cech/CupCohomology.lean}}, line 127:\\*
+\nolinkurl{cupPower}.
+\end{leansources}
+
+\leanentry{cup}{The chain lift and cup powers}
+\begin{leansources}
+\item \href{../../../lean/Aoki/Sheaf/LocallyConstantScalar.lean}{\nolinkurl{Aoki/Sheaf/LocallyConstantScalar.lean}}, line 72:\\*
+\nolinkurl{locallyConstantSMul}.
+\item \href{../../../lean/Aoki/Cech/CupProduct.lean}{\nolinkurl{Aoki/Cech/CupProduct.lean}}, line 45:\\*
+\nolinkurl{cupLift}.
+\item \href{../../../lean/Aoki/Cech/CupProduct.lean}{\nolinkurl{Aoki/Cech/CupProduct.lean}}, line 197:\\*
+\nolinkurl{cupLift_chain_signed}.
+\item \href{../../../lean/Aoki/Cech/CupProduct.lean}{\nolinkurl{Aoki/Cech/CupProduct.lean}}, line 231:\\*
+\(\iota\)\nolinkurl{_cupIterate}.
+\item \href{../../../lean/Aoki/Homological/ExtMkComposition.lean}{\nolinkurl{Aoki/Homological/ExtMkComposition.lean}}, line 116:\\*
+\nolinkurl{extMk_comp_of_lift}.
+\item \href{../../../lean/Aoki/Cech/CupExt.lean}{\nolinkurl{Aoki/Cech/CupExt.lean}}, line 62:\\*
+\nolinkurl{yonedaPower_cupExtClass}.
+\item \href{../../../lean/Aoki/Cech/CupComparison.lean}{\nolinkurl{Aoki/Cech/CupComparison.lean}}, line 51:\\*
+\nolinkurl{cupIterate_comparison}.
+\item \href{../../../lean/Aoki/Cech/CupNonvanishing.lean}{\nolinkurl{Aoki/Cech/CupNonvanishing.lean}}, line 49:\\*
+\nolinkurl{cupPower_degreeOneClass_top}.
+\end{leansources}
+
+\leanentry{boundary}{Necessary properties of a boundary}
+\begin{leansources}
+\item \href{../../../lean/Aoki/OnePoint.lean}{\nolinkurl{Aoki/OnePoint.lean}}, line 64:\\*
+\nolinkurl{almostConstant_of_continuous_onePoint}.
+\item \href{../../../lean/Aoki/Cech/BoundaryObstruction.lean}{\nolinkurl{Aoki/Cech/BoundaryObstruction.lean}}, line 142:\\*
+\nolinkurl{invariant_deleted_section}.
+\item \href{../../../lean/Aoki/Cech/BoundaryObstruction.lean}{\nolinkurl{Aoki/Cech/BoundaryObstruction.lean}}, line 152:\\*
+\nolinkurl{along_deleted_section}.
+\item \href{../../../lean/Aoki/Cech/CochainValues.lean}{\nolinkurl{Aoki/Cech/CochainValues.lean}}, line 68:\\*
+\nolinkurl{cochainValue_differential}.
+\end{leansources}
+
+\leanentry{thinning}{Uniform thinning and cardinal growth}
+\begin{leansources}
+\item \href{../../../lean/Aoki/Thinning.lean}{\nolinkurl{Aoki/Thinning.lean}}, line 18:\\*
+\nolinkurl{mk_exceptional_first_coordinates_le}.
+\item \href{../../../lean/Aoki/Thinning.lean}{\nolinkurl{Aoki/Thinning.lean}}, line 57:\\*
+\nolinkurl{exists_fresh_pair}.
+\item \href{../../../lean/Aoki/Cardinals.lean}{\nolinkurl{Aoki/Cardinals.lean}}, line 45:\\*
+\nolinkurl{mk_config}.
+\item \href{../../../lean/Aoki/Cardinals.lean}{\nolinkurl{Aoki/Cardinals.lean}}, line 62:\\*
+\nolinkurl{config_lt_next}.
+\end{leansources}
+
+\leanentry{difference}{Finite differences and nondecomposition}
+\begin{leansources}
+\item \href{../../../lean/Aoki/Functions.lean}{\nolinkurl{Aoki/Functions.lean}}, line 67:\\*
+\nolinkurl{delta_alternating}.
+\item \href{../../../lean/Aoki/Functions.lean}{\nolinkurl{Aoki/Functions.lean}}, line 73:\\*
+\nolinkurl{invariant_delta}.
+\item \href{../../../lean/Aoki/AlmostConstant.lean}{\nolinkurl{Aoki/AlmostConstant.lean}}, line 78:\\*
+\nolinkurl{not_flip_sum_one}.
+\item \href{../../../lean/Aoki/Nonvanishing.lean}{\nolinkurl{Aoki/Nonvanishing.lean}}, line 73:\\*
+\nolinkurl{alternating_one_not_boundary}.
+\item \href{../../../lean/Aoki/Nonvanishing.lean}{\nolinkurl{Aoki/Nonvanishing.lean}}, line 51:\\*
+\nolinkurl{boundary_delta}.
+\item \href{../../../lean/Aoki/Nonvanishing.lean}{\nolinkurl{Aoki/Nonvanishing.lean}}, line 120:\\*
+\nolinkurl{aleph_nondecomposition}.
+\end{leansources}
+
+\leanentry{nonzero}{Nonzero actual cup powers}
+\begin{leansources}
+\item \href{../../../lean/Aoki/Cech/CochainValues.lean}{\nolinkurl{Aoki/Cech/CochainValues.lean}}, line 140:\\*
+\nolinkurl{aleph_powerCochain_not_boundary}.
+\item \href{../../../lean/Aoki/Cech/NonzeroClass.lean}{\nolinkurl{Aoki/Cech/NonzeroClass.lean}}, line 62:\\*
+\nolinkurl{aleph_topPowerClass_ne_zero}.
+\item \href{../../../lean/Aoki/Cech/CupNonvanishing.lean}{\nolinkurl{Aoki/Cech/CupNonvanishing.lean}}, line 58:\\*
+\nolinkurl{aleph_cupPower_ne_zero}.
+\item \href{../../../lean/Aoki/Cech/CupNonvanishing.lean}{\nolinkurl{Aoki/Cech/CupNonvanishing.lean}}, line 66:\\*
+\nolinkurl{cupPower_next_eq_zero}.
+\end{leansources}
+
+\leanentry{transfinite}{Closure under transfinite extensions}
+\begin{leansources}
+\item \href{../../../lean/Aoki/Homological/TransfiniteDimension.lean}{\nolinkurl{Aoki/Homological/TransfiniteDimension.lean}}, line 24:\\*
+\nolinkurl{extOne_vanish_iff_surjective_comp}.
+\item \href{../../../lean/Aoki/Homological/TransfiniteDimension.lean}{\nolinkurl{Aoki/Homological/TransfiniteDimension.lean}}, line 86:\\*
+\nolinkurl{extOne_vanish_of_transfinite}.
+\item \href{../../../lean/Aoki/Homological/TransfiniteDimension.lean}{\nolinkurl{Aoki/Homological/TransfiniteDimension.lean}}, line 107:\\*
+\nolinkurl{ext_succ_vanish_of_transfinite}.
+\item \href{../../../lean/Aoki/Homological/TransfiniteDimension.lean}{\nolinkurl{Aoki/Homological/TransfiniteDimension.lean}}, line 134:\\*
+\nolinkurl{hasProjectiveDimensionLE_of_transfinite}.
+\end{leansources}
+
+\leanentry{cover-bound}{Compact-open covers and projective dimension}
+\begin{leansources}
+\item \href{../../../lean/Aoki/Sheaf/ProjectiveOpen.lean}{\nolinkurl{Aoki/Sheaf/ProjectiveOpen.lean}}, line 52:\\*
+\nolinkurl{projective_freeOpen_countable_iSup}.
+\item \href{../../../lean/Aoki/Sheaf/FreeOpenColimit.lean}{\nolinkurl{Aoki/Sheaf/FreeOpenColimit.lean}}, line 57:\\*
+\nolinkurl{freeOpenUnionCoconeIsColimit}.
+\item \href{../../../lean/Aoki/Sheaf/FreeOpenFiltration.lean}{\nolinkurl{Aoki/Sheaf/FreeOpenFiltration.lean}}, line 74:\\*
+\nolinkurl{initialFreeOpenFiltration_continuous}.
+\item \href{../../../lean/Aoki/Sheaf/FreeOpenExact.lean}{\nolinkurl{Aoki/Sheaf/FreeOpenExact.lean}}, line 64:\\*
+\nolinkurl{freeOpenMayerVietoris_shortExact}.
+\item \href{../../../lean/Aoki/Sheaf/FreeOpenExact.lean}{\nolinkurl{Aoki/Sheaf/FreeOpenExact.lean}}, line 70:\\*
+\nolinkurl{freeOpenUnionQuotientIso}.
+\item \href{../../../lean/Aoki/Sheaf/CardinalDimension.lean}{\nolinkurl{Aoki/Sheaf/CardinalDimension.lean}}, line 54:\\*
+\nolinkurl{freeOpen_iSup_projectiveDimensionLE}.
+\item \href{../../../lean/Aoki/Sheaf/CardinalDimension.lean}{\nolinkurl{Aoki/Sheaf/CardinalDimension.lean}}, line 111:\\*
+\nolinkurl{sheaf_cohomology_eq_zero_of_compactOpen_cover_cardinal}.
+\end{leansources}
+
+\leanentry{minimality}{Universal bounds from cardinality and weight}
+\begin{leansources}
+\item \href{../../../lean/Aoki/Topology/Weight.lean}{\nolinkurl{Aoki/Topology/Weight.lean}}, line 93:\\*
+\nolinkurl{exists_point_indexed_compactOpen_cover}.
+\item \href{../../../lean/Aoki/Topology/Weight.lean}{\nolinkurl{Aoki/Topology/Weight.lean}}, line 128:\\*
+\nolinkurl{mk_compactOpens_le_weight}.
+\item \href{../../../lean/Aoki/Sheaf/CardinalDimension.lean}{\nolinkurl{Aoki/Sheaf/CardinalDimension.lean}}, line 149:\\*
+\nolinkurl{sheaf_cohomology_eq_zero_of_cardinal_lt_aleph}.
+\item \href{../../../lean/Aoki/Sheaf/CardinalDimension.lean}{\nolinkurl{Aoki/Sheaf/CardinalDimension.lean}}, line 161:\\*
+\nolinkurl{sheaf_cohomology_eq_zero_of_weight_lt_aleph}.
+\end{leansources}
