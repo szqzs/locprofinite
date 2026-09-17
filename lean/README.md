@@ -8,18 +8,18 @@ formalizing each step. This page is the build and source guide.
 
 ## Verified theorem
 
-For every positive integer $r$, the project constructs an actual locally
-profinite Hausdorff space $U_r$ and an ordinary sheaf-cohomology class
-$\eta\in H^1(U_r;\mathbf F_2)$ satisfying
+For every positive integer $`r`$, the project constructs an actual locally
+profinite Hausdorff space $`U_r`$ and an ordinary sheaf-cohomology class
+$`\eta\in H^1(U_r;\mathbf F_2)`$ satisfying
 
-$$
+```math
 |U_r|=w(U_r)=\aleph_r,\qquad \eta^r\ne0,\qquad \eta^{r+1}=0.
-$$
+```
 
-For every locally profinite Hausdorff space, nonzero degree-$r$ cohomology
+For every locally profinite Hausdorff space, nonzero degree-$`r`$ cohomology
 with any abelian coefficient sheaf forces both cardinality and weight to be
-at least $\aleph_r$. All abelian sheaf cohomology on the constructed example
-vanishes in degrees greater than $r$.
+at least $`\aleph_r`$. All abelian sheaf cohomology on the constructed example
+vanishes in degrees greater than $`r`$.
 
 The assembled declarations in [Main.lean](Aoki/Main.lean) are:
 
