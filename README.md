@@ -164,15 +164,15 @@ For the reverse inequalities, consider the axis where all coordinates except coo
 
 ### 4.1. Free sheaves on opens
 
-Let $`X`$ be a space and $`W\subseteq X`$ an open subset. Write $`P(W)`$ for the sheafification of the free abelian presheaf on the representable presheaf of $`W`$. Its defining property is the natural isomorphism
+Let $`X`$ be a space and $`j:W\hookrightarrow X`$ the inclusion of an open subset. Write $`P(W)=j_!\underline{\mathbb Z}_W`$ for the constant integer sheaf on $`W`$, extended by zero to $`X`$. Its defining property is the natural isomorphism
 
 ```math
 \mathrm{Hom}(P(W),\mathcal M)\cong\Gamma(W,\mathcal M).
 ```
 
-Inclusions of opens induce maps between these representing sheaves, and $`P(X)\cong\underline{\mathbb Z}_X`$. Similarly, for a commutative ring $`R`$, write $`P_R(W)`$ for the corresponding represented free sheaf in the category of sheaves of $`R`$-modules.
+Thus a morphism from $`P(W)`$ to $`\mathcal M`$ is exactly a section of $`\mathcal M`$ over $`W`$. Inclusions of opens induce maps between these representing sheaves, and $`P(X)\cong\underline{\mathbb Z}_X`$. Similarly, for a commutative ring $`R`$, write $`P_R(W)=j_!\underline R_W`$ for the constant rank-one $`R`$-module sheaf on $`W`$, extended by zero to $`X`$.
 
-**Lean.** The integral representation and the identification at the whole space are [freeOpenHomEquiv](lean/Aoki/Sheaf/FreeOpen.lean#L33) and [freeOpenTopIso](lean/Aoki/Sheaf/FreeOpen.lean#L97). Their module counterparts are [freeOpenModuleHomEquiv](lean/Aoki/Sheaf/ModuleFreeOpen.lean#L31) and [freeOpenModuleTopIso](lean/Aoki/Sheaf/ModuleFreeOpen.lean#L97).
+**Lean.** The implementation constructs $`P(W)`$ by sheafifying the free abelian presheaf on the representable presheaf of $`W`$, and proves the same representing property. The integral representation and the identification at the whole space are [freeOpenHomEquiv](lean/Aoki/Sheaf/FreeOpen.lean#L33) and [freeOpenTopIso](lean/Aoki/Sheaf/FreeOpen.lean#L97). Their module counterparts are [freeOpenModuleHomEquiv](lean/Aoki/Sheaf/ModuleFreeOpen.lean#L31) and [freeOpenModuleTopIso](lean/Aoki/Sheaf/ModuleFreeOpen.lean#L97).
 
 **Lemma 4.1.** If $`X`$ is Hausdorff and totally disconnected and $`W`$ is a disjoint union of compact-open subsets, then $`P(W)`$ is projective. The same is true of $`P_R(W)`$.
 
