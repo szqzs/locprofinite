@@ -176,7 +176,24 @@ Thus a morphism from $`P(W)`$ to $`\mathcal M`$ is exactly a section of $`\mathc
 
 **Lemma 4.1.** If $`X`$ is Hausdorff and totally disconnected and $`W`$ is a disjoint union of compact-open subsets, then $`P(W)`$ is projective. The same is true of $`P_R(W)`$.
 
-*Proof.* A section of the target of an epimorphism of sheaves lifts locally. On a compact open, a local lifting cover has a finite disjoint compact-open refinement: first take a finite clopen refinement inside the compact zero-dimensional space, then disjointify it. The local lifts on the disjoint pieces glue to a lift on the compact open. On a disjoint union of compact opens, carry this out on each component and glue once more. Thus sections on $`W`$ carry epimorphisms to surjections. The representing property proves projectivity. $`\square`$
+*Proof.* Projectivity means that, given an epimorphism of sheaves $`\varphi:\mathcal F\twoheadrightarrow\mathcal G`$, every morphism $`P(W)\to\mathcal G`$ lifts to a morphism $`P(W)\to\mathcal F`$. By the representing property above, this is equivalent to the following concrete claim: every section $`s\in\Gamma(W,\mathcal G)`$ has a lift $`t\in\Gamma(W,\mathcal F)`$ with $`\varphi(t)=s`$. We prove this claim.
+
+First suppose that $`W=K`$ is compact and open. An epimorphism of sheaves is surjective on stalks. Hence, for each $`x\in K`$, there is an open neighborhood $`V_x\subseteq K`$ on which $`s`$ has a lift $`t_x`$. Indeed, lift the germ of $`s`$ at $`x`$, represent the lifted germ by a local section, and shrink its neighborhood until its image agrees with $`s`$.
+
+The space $`K`$ is compact, Hausdorff, and totally disconnected, so it has a basis of clopen subsets. We may therefore choose a clopen neighborhood $`C_x`$ of $`x`$ contained in $`V_x`$. Compactness gives finitely many of these neighborhoods, say $`C_1,\ldots,C_m`$, covering $`K`$. Each $`C_j`$ carries a chosen lift of $`s`$.
+
+These lifts need not agree where the $`C_j`$ overlap. To remove the overlaps, set
+
+```math
+D_1=C_1,
+\qquad
+D_j=C_j\setminus\bigcup_{i=1}^{j-1}C_i
+\quad(2\leq j\leq m).
+```
+
+The sets $`D_j`$ are clopen, pairwise disjoint, and still cover $`K`$; moreover, $`D_j\subseteq C_j`$. Restrict the chosen lift on $`C_j`$ to $`D_j`$. There are now no overlaps on which compatibility must be checked, so the sheaf gluing axiom combines these sections into a section $`t\in\Gamma(K,\mathcal F)`$. Its image is $`s`$, since this equality holds on every $`D_j`$.
+
+For general $`W`$, write $`W=\coprod_{\lambda}K_\lambda`$ with each $`K_\lambda`$ compact and open. Apply the compact case to $`s|_{K_\lambda}`$ to obtain a lift on every $`K_\lambda`$. These sets are again disjoint and open, so the lifts glue to the required section on all of $`W`$. This proves projectivity of $`P(W)`$. The same argument applies to sheaves of $`R`$-modules and proves projectivity of $`P_R(W)`$. $`\square`$
 
 **Lean.** See [exists_compactOpen_disjoint_refinement](lean/Aoki/Topology/CompactOpenCovers.lean#L79), [surjective_sections_of_disjoint_refinements](lean/Aoki/Sheaf/EpiSections.lean#L70), [projective_freeOpen_disjoint_iSup](lean/Aoki/Sheaf/ProjectiveOpen.lean#L41), and [projective_freeOpenModule_disjoint_iSup](lean/Aoki/Sheaf/ModuleFreeOpen.lean#L184). Applied to the cells of Lemma 3.1, this gives [projective_freeOpen_chartIntersection](lean/Aoki/Sheaf/ChartProjectivity.lean#L64) and [projective_freeOpenModule_chartIntersection](lean/Aoki/Sheaf/ModuleChartProjectivity.lean#L25).
 
