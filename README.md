@@ -1,20 +1,20 @@
-# Sharp cardinal bounds for cup products on locally profinite spaces
+# Cohomology rings of locally profinite spaces
 
-*An AI-assisted proof of the sharp form of Aoki’s Question 2.14, with a Lean formalization.*
+*An AI-assisted proof of a question of Aoki, with a Lean formalization.*
 
 ## 1. Aoki’s question
 
-In *On cohomology of locally profinite sets*, Aoki proves that, for every $`n\geq 0`$, there is a locally profinite space of cardinality $`\aleph_{2n+1}`$ carrying classes $`\eta_0,\ldots,\eta_n\in H^1(U;\mathbf F_2)`$ with nonzero product. He then asks:
+In Theorem C of *On cohomology of locally profinite sets*, Aoki proves that, for every $`n\geq 0`$, there is a locally profinite space of cardinality $`\aleph_{2n+1}`$ carrying classes $`\eta_0,\ldots,\eta_n\in H^1(U;\mathbf F_2)`$ with nonzero product. He then asks:
 
 > **Question 2.14.** Is Theorem C optimal in terms of the weight (or cardinality) of $`U`$?
 
-The statement and numbering here refer to [Aoki, arXiv:2411.05995v1, Theorem C on p. 1 and Question 2.14 on p. 4](https://arxiv.org/pdf/2411.05995v1#page=4).
+See [Aoki, arXiv:2411.05995v1, Theorem C on p. 1 and Question 2.14 on p. 4](https://arxiv.org/pdf/2411.05995v1#page=4).
 
-We show that the sharp bound for a product of $`n+1`$ degree-one classes is $`\aleph_{n+1}`$, for both cardinality and weight. Thus the bound in Theorem C can be lowered for every $`n\geq 1`$. Moreover, all the factors in our nonzero product can be the same class.
+We show that, for every $`n\geq 1`$, the sharp bound for a product of $`n`$ degree-one classes is $`\aleph_n`$, for both cardinality and weight. For $`n\geq 2`$ factors, this improves Aoki’s bound $`\aleph_{2n-1}`$. Moreover, all the factors in our nonzero product can be the same class.
 
 Throughout, a *locally profinite Hausdorff space* means a locally compact, Hausdorff, totally disconnected space. Our examples are obtained by removing one point from a profinite space, so they also satisfy Aoki’s punctured-profinite convention. The *weight* $`w(X)`$ is the least cardinality of a basis for the topology. Cohomology means ordinary sheaf cohomology; $`\mathbf F_2`$ denotes the constant sheaf when used as a coefficient.
 
-**Formalization convention.** A paragraph labeled **Lean** identifies the checked declarations supporting the preceding result. These links point to the actual definitions and proofs, not to axioms recording the desired conclusions. Mathematical notation is kept independent of implementation details.
+**Formalization convention.** A paragraph labeled **Lean** identifies the checked declarations supporting the preceding result. Mathematical notation is kept independent of implementation details.
 
 ## 2. The theorem
 
@@ -45,10 +45,6 @@ Consequently, $`\aleph_r`$ is both the least cardinality and the least weight of
 Part (ii) follows from [Wiegand’s classical cohomological-dimension bound](https://doi.org/10.1307/mmj/1029000311), recalled and formalized in Section 7.
 
 **Lean.** The examples and cup powers are formalized in [Aoki.aoki_question_2_14](lean/Aoki/Main.lean#L31). The optimality part is formalized in [Aoki.aoki_example_cohomology_above](lean/Aoki/Main.lean#L56) and [Aoki.aoki_question_2_14_minimality](lean/Aoki/Main.lean#L47).
-
-### Proof strategy
-
-We construct $`U_r`$ and a cover by $`r+1`$ opens whose nonempty intersections are disjoint unions of compact opens. The represented free sheaves on those intersections give a finite projective resolution. Transition functions for the diagonal involution define a degree-one class. An explicit chain lift shows that its $`r`$-th power is represented by a product of adjacent bit differences. Every top-degree boundary would give a decomposition of that function into invariant functions, each almost constant in one coordinate. A finite-difference induction rules out such a decomposition. Finally, we reprove Wiegand’s classical bound by cardinal induction to establish optimality.
 
 ## 3. The space, its charts, and its size
 
@@ -664,7 +660,7 @@ lake env lean AxiomAudit.lean
 
 The aggregate [Aoki.lean](lean/Aoki.lean) imports the complete local development: 64 modules under the Aoki directory, or 65 modules including the aggregate itself. The complete development builds, and [AxiomAudit.lean](lean/AxiomAudit.lean) reports only Lean’s standard axioms—propositional extensionality, classical choice, and quotient soundness—for the main statements and their principal bridges. There are no proof placeholders or added mathematical axioms. The commands and audit output are recorded in [verification.txt](lean/verification.txt).
 
-This repository includes the exposition, Lean sources, and pinned dependency manifest. Build caches are excluded. The [Lean project guide](lean/README.md) gives the source organization and build instructions. [GitHub Actions](.github/workflows/lean.yml) is configured to build the development and audit its axioms.
+This repository includes the exposition, Lean sources, and pinned dependency manifest. The [Lean project guide](lean/README.md) gives the source organization and build instructions. [GitHub Actions](.github/workflows/lean.yml) is configured to build the development and audit its axioms.
 
 ## References
 
@@ -672,5 +668,3 @@ This repository includes the exposition, Lean sources, and pinned dependency man
 2. Roger Wiegand, *The cohomological dimension of Stone spaces*, Bulletin of the American Mathematical Society **74** (1968), 944–945, Theorem 3. [DOI](https://doi.org/10.1090/S0002-9904-1968-12099-3).
 3. Roger Wiegand, *Some topological invariants of Stone spaces*, Michigan Mathematical Journal **16** (1969), 289–296, Theorem 2.3 and Section 3. [DOI](https://doi.org/10.1307/mmj/1029000311); [author-uploaded PDF](https://www.researchgate.net/profile/Roger-Wiegand/publication/38323258_Some_topological_invariants_of_Stone_spaces/links/546a7df50cf2397f783019b9/Some-topological-invariants-of-Stone-spaces.pdf).
 4. The mathlib community, *Mathlib*, [source at the pinned commit](https://github.com/leanprover-community/mathlib4/tree/fabf563a7c95a166b8d7b6efca11c8b4dc9d911f). The development uses its topology, sheaves, projective resolutions, derived-category Ext, and transfinite lifting infrastructure.
-
-This README follows the economical proof implemented in the Lean development.
