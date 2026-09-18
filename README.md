@@ -306,7 +306,7 @@ Let
 C_r=\prod_{i=0}^{r}D_i,
 ```
 
-and let $`\sigma_r`$ flip all its bits. Call a function $`f:C_r\to\mathbf F_2`$ *almost constant in coordinate $`i`$* if, with all other coordinates fixed, its restriction to $`D_i`$ is constant outside a finite set. The exceptional set and eventual value may depend on the other coordinates.
+and let $`\sigma_r`$ flip all its bits. Call a function $`f:C_r\to\mathbf F_2`$ *almost constant* in coordinate $`i`$ if, with all other coordinates fixed, its restriction to $`D_i`$ is constant outside a finite set. The exceptional set and eventual value may depend on the other coordinates.
 
 Suppose the top cochain $`F_r`$ were a boundary. Since signs disappear over $`\mathbf F_2`$, it would pull back to a sum
 
