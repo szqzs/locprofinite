@@ -103,7 +103,7 @@ On $`W_i`$, each orbit has a unique representative whose $`i`$-th bit is zero. T
 
 **Lean.** The cover is [iSup_chartOpen](lean/Aoki/Sheaf/ChartProjectivity.lean#L37). The continuous choice of representative is [sliceHomeomorph](lean/Aoki/Topology/Charts.lean#L86); a product description of each single chart is [chartProductHomeomorph](lean/Aoki/Topology/Charts.lean#L126).
 
-**Lemma 3.1.** Every nonempty finite intersection
+**Lemma 3.1.** For every nonempty $`I\subseteq\{0,\ldots,r\}`$, the intersection
 
 ```math
 W_I=\bigcap_{i\in I}W_i
@@ -111,11 +111,24 @@ W_I=\bigcap_{i\in I}W_i
 
 is a disjoint union of compact-open subsets of $`U_r`$.
 
-*Proof.* Fix an anchor $`a\in I`$. In the representative with anchor bit zero, prescribe all the finite coordinates $`(a_i,s_i)\in D_i`$ for $`i\in I`$, imposing $`s_a=0`$. Before taking the quotient, this prescription defines a clopen cylinder in the compact product $`K`$. Its image is compact and open, and it avoids $`q(p)`$.
+*Proof.* Choose any index $`k\in I`$; this is possible because $`I`$ is nonempty. Every orbit in $`W_I`$ has a finite $`k`$-th coordinate, so it has a unique representative whose $`k`$-th bit is zero. This representative varies continuously, by the chart description above.
 
-Two such images can meet only if their representatives agree or differ by $`\tau`$. The latter possibility is excluded by the anchor bits both being zero. Thus the images are pairwise disjoint. Every orbit in $`W_I`$ has exactly one such label, so they cover $`W_I`$. $`\square`$
+In this representative, coordinate $`k`$ has the form $`(a_k,0)`$ and is specified by $`a_k\in A_k`$. Each other coordinate $`i\in I\setminus\{k\}`$ is an arbitrary finite pair $`(a_i,s_i)\in A_i\times\{0,1\}`$, while every coordinate $`j\notin I`$ can be any point of $`K_j`$, including infinity. Reading off these coordinates gives a homeomorphism
 
-**Lean.** The labels and cells are [GaugeLabel](lean/Aoki/Topology/Intersections.lean#L14) and [cellOpen](lean/Aoki/Topology/Intersections.lean#L151). Their properties are [cell_pairwiseDisjoint](lean/Aoki/Topology/Intersections.lean#L84), [cells_cover_intersection](lean/Aoki/Topology/Intersections.lean#L92), [isClopen_cell](lean/Aoki/Topology/Intersections.lean#L126), and [isCompact_cell](lean/Aoki/Topology/Intersections.lean#L130). The proof uses this cell decomposition directly.
+```math
+W_I\cong
+\underbrace{
+A_k\times\prod_{i\in I\setminus\{k\}}(A_i\times\{0,1\})
+}_{\text{discrete set of labels}}
+\times
+\underbrace{
+\prod_{j\notin I}K_j
+}_{\text{compact space}}.
+```
+
+The inverse inserts the zero bit in coordinate $`k`$ and takes the orbit. The label space is discrete because it is a finite product of discrete spaces, and the remaining product is compact. Fixing one label therefore gives a compact-open subset of $`W_I`$, homeomorphic to $`\prod_{j\notin I}K_j`$. Since $`W_I`$ is open in $`U_r`$, each such piece is also open in $`U_r`$ and remains compact there. Different labels give disjoint pieces, and every point has exactly one label, so the pieces cover $`W_I`$. $`\square`$
+
+**Lean.** The labels and cells are [GaugeLabel](lean/Aoki/Topology/Intersections.lean#L14) and [cellOpen](lean/Aoki/Topology/Intersections.lean#L151). Their properties are [cell_pairwiseDisjoint](lean/Aoki/Topology/Intersections.lean#L84), [cells_cover_intersection](lean/Aoki/Topology/Intersections.lean#L92), [isClopen_cell](lean/Aoki/Topology/Intersections.lean#L126), and [isCompact_cell](lean/Aoki/Topology/Intersections.lean#L130). The formal proof constructs these labeled compact-open pieces directly.
 
 ### 3.3. Cardinality and weight
 
