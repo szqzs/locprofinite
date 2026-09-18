@@ -308,94 +308,57 @@ This constructs the class; Section 6 will prove that its $`r`$-th power is nonze
 
 ### 5.2. Computing multiplication by a chain lift
 
-Section 5.1 constructed the class $`\eta_r`$ from the transition functions $`z_{ij}`$. We now need an explicit cocycle representing its powers, so that we can test whether its $`r`$-th power is nonzero. The formula we will prove is
+We want explicit cocycles for the powers of $`\eta_r=[z]`$. The square has degree two, so it must be represented by functions on triple overlaps. The formula is
 
 ```math
-(c_k)_{i_0\ldots i_k}
-=z_{i_0i_1}z_{i_1i_2}\cdots z_{i_{k-1}i_k},
-\qquad
-[c_k]=\eta_r^k.
+(z\smile z)_{ijk}=z_{ij}z_{jk}
+\qquad\text{on }W_i\cap W_j\cap W_k.
 ```
 
-Here $`i_0\lt\cdots\lt i_k`$, and all the factors are restricted to the common intersection $`W_{i_0}\cap\cdots\cap W_{i_k}`$. Recall that a degree-$`k`$ cochain assigns a locally constant function to each such intersection. Thus the formula has the right degree: the square uses functions on triple overlaps, the cube uses functions on quadruple overlaps, and so on.
-
-The point of the argument below is to justify that these functions represent the **cup powers in sheaf cohomology**. A chain lift provides a way to compute that multiplication using our projective resolution.
-
-**The role of a chain lift.** Put $`R=\mathbf F_2`$ and use the module resolution from Proposition 4.2, writing its augmentation as $`\varepsilon`$:
+Both functions are restricted to this common intersection before multiplication. More generally, multiplying a degree-$`k`$ cochain $`c`$ by $`z`$ uses the rule
 
 ```math
-\cdots\longrightarrow P_2^R\longrightarrow P_1^R
-\longrightarrow P_0^R
-\xrightarrow{\varepsilon}\underline R
-\longrightarrow 0.
+(Tc)_{i_0\ldots i_{k+1}}
+=z_{i_0i_1}\,c_{i_1\ldots i_{k+1}}.
 ```
 
-By the representing property from Section 4.1, a map $`P_k^R\to\underline R`$ is exactly a family of locally constant functions on the $`(k+1)`$-fold intersections. Applying $`\mathrm{Hom}(-,\underline R)`$ therefore gives the same Čech cochain complex that computes $`H^*(U_r;\mathbf F_2)`$. In particular, we can regard our cocycle $`z`$ as a map $`P_1^R\to\underline R`$.
+Use the first two indices for the transition function and the remaining list for $`c`$, with the index $`i_1`$ shared by both. We will justify that this operation represents multiplication by $`\eta_r`$ in ordinary sheaf cohomology.
 
-We cannot compose this map with itself: its target is $`\underline R`$, whereas its source is $`P_1^R`$. Instead, we represent the same degree-one class by maps that lower the degree throughout the resolution:
+Put $`R=\mathbf F_2`$. By Section 4, a degree-$`k`$ cochain is equivalently a map $`c:P_k^R\to\underline R`$ from the module resolution. Define $`L_k`$ on the summand indexed by $`[i_0,\ldots,i_{k+1}]`$ by multiplying by $`z_{i_0i_1}`$ and deleting the first index. The deletion uses the inclusion of the full intersection into the intersection with that index omitted. Multiplication is well-defined because $`z_{i_0i_1}`$ is locally constant. Following $`L_k`$ by $`c`$ gives exactly our rule:
 
 ```math
-L_k:P_{k+1}^R\longrightarrow P_k^R
-\qquad(k\geq0).
+P_{k+1}^R\xrightarrow{L_k}P_k^R\xrightarrow{c}\underline R,
+\qquad Tc=c\circ L_k.
 ```
 
-These maps must respect the differentials and satisfy $`\varepsilon\circ L_0=z`$. This is what we mean here by a **chain lift of the cocycle**. Unlike the single map $`z`$, the maps $`L_k`$ can be composed successively.
-
-**Constructing the lift.** Recall that the summands of $`P_{k+1}^R`$ are indexed by increasing lists $`[i_0,\ldots,i_{k+1}]`$. On such a summand, define $`L_k`$ by two operations:
-
-1. Multiply by the transition function $`z_{i_0i_1}`$.
-2. Delete the first index, mapping to the summand of $`P_k^R`$ indexed by $`[i_1,\ldots,i_{k+1}]`$.
-
-The second operation is the map of extension-by-zero sheaves induced by the inclusion of the full intersection into the intersection with the first index omitted. The first operation is also a sheaf map: on the open set where $`z_{i_0i_1}=0`$ it is zero, and on the open set where $`z_{i_0i_1}=1`$ it is the identity. These two definitions glue because the transition function is locally constant.
-
-For $`k=0`$, this multiplies the summand for $`[i,j]`$ by $`z_{ij}`$ and sends it to the summand for $`[j]`$. Applying $`\varepsilon`$ then gives exactly the original transition cochain. Thus $`\varepsilon\circ L_0=z`$.
-
-Write $`d_k:P_{k+1}^R\to P_k^R`$ for the differential. The compatibility we need is
+Let $`\varepsilon:P_0^R\to\underline R`$ be the augmentation, corresponding to the constant degree-zero cochain $`1`$. Then $`\varepsilon\circ L_0=z`$. Moreover, writing $`d_k:P_{k+1}^R\to P_k^R`$, we have
 
 ```math
 L_k\circ d_{k+1}=d_k\circ L_{k+1}.
 ```
 
-Both sides are maps $`P_{k+2}^R\to P_k^R`$. To check the identity, expand the differential as a sum of index deletions. Deleting any index after the first two gives matching terms on the two sides. The terms from deleting one of the first two indices combine by
+Indeed, expand the differential as a sum of index deletions. Terms deleting an index after the first two match; the first two terms combine using $`z_{i_1i_2}+z_{i_0i_2}=z_{i_0i_1}`$. Signs disappear over $`\mathbf F_2`$. These identities say that $`L`$ is a **chain lift** of $`z`$.
+
+The differential identity ensures that $`T`$ sends cocycles to cocycles. The standard projective-resolution rule for the cup product then says that $`c\circ L_k`$ represents $`\eta_r\smile[c]`$. This is the Yoneda description of multiplication: lift one cocycle, then compose with the other.
+
+Starting with $`c_1=z`$ and applying $`T`$ repeatedly therefore gives
 
 ```math
-z_{i_1i_2}+z_{i_0i_2}=z_{i_0i_1},
+(c_k)_{i_0\ldots i_k}
+=z_{i_0i_1}\cdots z_{i_{k-1}i_k},
+\qquad [c_k]=\eta_r^k.
 ```
 
-which is precisely the cocycle identity proved in Section 5.1. All signs disappear over $`\mathbf F_2`$; the usual signed chain-lift identity has a minus sign on the right.
-
-**Why composition computes the cup power.** For the constant rank-one module sheaf, the cup product is realized by the Yoneda product on $`\mathrm{Ext}^*(\underline R,\underline R)`$. The standard rule for computing this product with a projective resolution is: lift one cocycle to a map between resolutions, then compose with the other cocycle. In our situation, if $`c:P_k^R\to\underline R`$ represents a class $`[c]`$, then
-
-```math
-c\circ L_k:P_{k+1}^R\longrightarrow\underline R
-\quad\text{represents}\quad
-\eta_r\smile[c].
-```
-
-The chain identity ensures that this composite is a cocycle. The projective-resolution rule identifies its class with the product; this multiplication rule is also proved in Lean, as recorded below.
-
-Start with $`c_0=\varepsilon`$, which represents the unit $`1\in H^0(U_r;R)`$, and set $`c_{k+1}=c_k\circ L_k`$. Each step multiplies the class by $`\eta_r`$, so $`[c_k]=\eta_r^k`$.
-
-For example, the square is represented by
-
-```math
-c_2=\varepsilon\circ L_0\circ L_1.
-```
-
-On a triple overlap indexed by $`[i,j,k]`$, the first map applied, $`L_1`$, contributes $`z_{ij}`$ and leaves $`[j,k]`$. Then $`L_0`$ contributes $`z_{jk}`$ and leaves $`[k]`$. Finally, $`\varepsilon`$ sends the local generator to $`1`$. The resulting function is $`z_{ij}z_{jk}`$. Repeating this calculation gives the formula for $`c_k`$ at the start of the section.
-
-In degree $`r`$, there is only one increasing list, $`[0,\ldots,r]`$. On its intersection all coordinates are finite. Using a representative $`((a_i,s_i))_{i=0}^r`$ and substituting $`z_{ij}=s_i+s_j`$, we obtain
+In degree $`r`$, the only increasing list is $`[0,\ldots,r]`$. All coordinates are finite on this intersection, so substituting $`z_{ij}=s_i+s_j`$ gives the representative
 
 ```math
 F_r((a_i,s_i)_{i=0}^{r})
-=\prod_{j=0}^{r-1}(s_j+s_{j+1}).
+=\prod_{j=0}^{r-1}(s_j+s_{j+1})
 ```
 
-We have proved that this explicit function represents $`\eta_r^r`$. Section 6 will show that it cannot be a boundary.
+for $`\eta_r^r`$. Section 6 proves that this function is not a boundary.
 
-**Lean: comparison with ordinary cohomology.** The module and integral resolutions give the same section-valued cochain complexes; compatibility with the differential is [moduleCechHomEquiv_d](lean/Aoki/Cech/ModuleComparison.lean#L127). The coefficient identification sends the local generator to the constant function $`1`$, by [freeOpenModuleTopSectionAddEquiv_generator](lean/Aoki/Sheaf/ModuleConstantComparison.lean#L125). The resulting cohomology equivalence and its action on cocycles are [cupCohomologyAddEquiv](lean/Aoki/Cech/CupCohomology.lean#L86) and [cupCohomologyAddEquiv_extMk](lean/Aoki/Cech/CupCohomology.lean#L104). The operation on ordinary cohomology is defined by transporting the module-sheaf Yoneda product in [cupProduct](lean/Aoki/Cech/CupCohomology.lean#L118).
-
-**Lean: the lift and its powers.** Local scalar action is [locallyConstantSMul](lean/Aoki/Sheaf/LocallyConstantScalar.lean#L72). The lift, signed chain identity, and iterate formula are [cupLift](lean/Aoki/Cech/CupProduct.lean#L45), [cupLift_chain_signed](lean/Aoki/Cech/CupProduct.lean#L197), and [ι_cupIterate](lean/Aoki/Cech/CupProduct.lean#L231). The projective-resolution multiplication rule is [extMk_comp_of_lift](lean/Aoki/Homological/ExtMkComposition.lean#L116); its application gives [yonedaPower_cupExtClass](lean/Aoki/Cech/CupExt.lean#L62). Comparison with the explicit ordinary cochains is [cupIterate_comparison](lean/Aoki/Cech/CupComparison.lean#L51), and the final cup-power identity is [cupPower_degreeOneClass_top](lean/Aoki/Cech/CupNonvanishing.lean#L49).
+**Lean.** The lift, differential identity, and product formula are [cupLift](lean/Aoki/Cech/CupProduct.lean#L45), [cupLift_chain_signed](lean/Aoki/Cech/CupProduct.lean#L197), and [ι_cupIterate](lean/Aoki/Cech/CupProduct.lean#L231). The Yoneda multiplication rule is [extMk_comp_of_lift](lean/Aoki/Homological/ExtMkComposition.lean#L116), applied in [yonedaPower_cupExtClass](lean/Aoki/Cech/CupExt.lean#L62). The comparison with ordinary cohomology is [cupCohomologyAddEquiv](lean/Aoki/Cech/CupCohomology.lean#L86); [cupProduct](lean/Aoki/Cech/CupCohomology.lean#L118) transports the Yoneda product through it. The final identity is [cupPower_degreeOneClass_top](lean/Aoki/Cech/CupNonvanishing.lean#L49).
 
 ## 6. The nonvanishing argument
 
