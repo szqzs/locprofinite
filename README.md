@@ -45,6 +45,8 @@ H^r(V;\mathcal M)\neq 0
 w(V)\geq\aleph_r.
 ```
 
+The converse is a consequence of [Wiegand’s classical cohomological-dimension bound](https://doi.org/10.1307/mmj/1029000311), recalled and formalized in Section 7.
+
 In particular, the least possible cardinality, and separately the least possible weight, of a locally profinite Hausdorff space supporting a nonzero product of $`r`$ degree-one constant-$`\mathbf F_2`$ classes is exactly $`\aleph_r`$.
 
 The last assertion follows because such a product is a nonzero degree-$`r`$ class, whereas the examples attain both bounds. The all-coefficient vanishing and the nonzero degree-$`r`$ class also show that $`U_r`$ has cohomological dimension exactly $`r`$.
@@ -53,7 +55,7 @@ The last assertion follows because such a product is a nonzero degree-$`r`$ clas
 
 ### Proof strategy
 
-We construct $`U_r`$ and a cover by $`r+1`$ opens whose nonempty intersections are disjoint unions of compact opens. The represented free sheaves on those intersections give a finite projective resolution. Transition functions for the diagonal involution define a degree-one class. An explicit chain lift shows that its $`r`$-th power is represented by a product of adjacent bit differences. Every top-degree boundary would give a decomposition of that function into invariant functions, each almost constant in one coordinate. A finite-difference induction rules out such a decomposition. Finally, a separate cardinal induction bounds the projective dimension of the constant integral sheaf on every smaller space.
+We construct $`U_r`$ and a cover by $`r+1`$ opens whose nonempty intersections are disjoint unions of compact opens. The represented free sheaves on those intersections give a finite projective resolution. Transition functions for the diagonal involution define a degree-one class. An explicit chain lift shows that its $`r`$-th power is represented by a product of adjacent bit differences. Every top-degree boundary would give a decomposition of that function into invariant functions, each almost constant in one coordinate. A finite-difference induction rules out such a decomposition. Finally, we reprove Wiegand’s classical bound by cardinal induction to establish optimality.
 
 ## 3. The space, its charts, and its size
 
@@ -540,7 +542,9 @@ The resolution of Section 4 gives $`H^{r+1}(U_r;\mathbf F_2)=0`$, so $`\eta_r^{r
 
 ## 7. The universal lower bound
 
-We now prove the all-coefficient bound used for optimality. This argument is independent of the special quotient construction.
+The all-coefficient vanishing bound used here is a **classical theorem of Roger Wiegand**. A locally compact, Hausdorff, totally disconnected space $`X`$ covered by at most $`\aleph_n`$ compact subsets satisfies $`H^d(X;\mathcal M)=0`$ for every abelian sheaf $`\mathcal M`$ and every $`d\gt n`$. See [Wiegand (1969), Theorem 2.3 and its proof in Section 3](https://doi.org/10.1307/mmj/1029000311); the result was announced in [Wiegand (1968), Theorem 3](https://doi.org/10.1090/S0002-9904-1968-12099-3).
+
+Every compact subset is contained in a finite union of compact opens, so the two cover bounds are equivalent here. We give a direct proof using compact-open covers and projective resolutions, matching the Lean formalization. Section 7.3 then deduces the lower bounds on cardinality and weight.
 
 ### 7.1. Transfinite extensions preserve a projective-dimension bound
 
@@ -566,7 +570,7 @@ This proof uses the continuity of the given filtration; it does not require Ext 
 
 ### 7.2. The compact-open cover bound
 
-**Proposition 7.2.** Let $`X`$ be Hausdorff and totally disconnected, and let $`W\subseteq X`$ be the union of at most $`\aleph_n`$ compact-open subsets of $`X`$. Then
+**Proposition 7.2 (Wiegand’s bound, in projective-dimension form).** Let $`X`$ be Hausdorff and totally disconnected, and let $`W\subseteq X`$ be the union of at most $`\aleph_n`$ compact-open subsets of $`X`$. Then
 
 ```math
 \mathrm{pd}(P(W))\leq n.
@@ -696,6 +700,8 @@ This repository includes the exposition, Lean sources, and pinned dependency man
 ## References
 
 1. Ko Aoki, *On cohomology of locally profinite sets*, [arXiv:2411.05995v1](https://arxiv.org/abs/2411.05995v1), 2024. The theorem and question numbers used here refer to this version.
-2. The mathlib community, *Mathlib*, [source at the pinned commit](https://github.com/leanprover-community/mathlib4/tree/fabf563a7c95a166b8d7b6efca11c8b4dc9d911f). The development uses its topology, sheaves, projective resolutions, derived-category Ext, and transfinite lifting infrastructure.
+2. Roger Wiegand, *The cohomological dimension of Stone spaces*, Bulletin of the American Mathematical Society **74** (1968), 944–945, Theorem 3. [DOI](https://doi.org/10.1090/S0002-9904-1968-12099-3).
+3. Roger Wiegand, *Some topological invariants of Stone spaces*, Michigan Mathematical Journal **16** (1969), 289–296, Theorem 2.3 and Section 3. [DOI](https://doi.org/10.1307/mmj/1029000311); [author-uploaded PDF](https://www.researchgate.net/profile/Roger-Wiegand/publication/38323258_Some_topological_invariants_of_Stone_spaces/links/546a7df50cf2397f783019b9/Some-topological-invariants-of-Stone-spaces.pdf).
+4. The mathlib community, *Mathlib*, [source at the pinned commit](https://github.com/leanprover-community/mathlib4/tree/fabf563a7c95a166b8d7b6efca11c8b4dc9d911f). The development uses its topology, sheaves, projective resolutions, derived-category Ext, and transfinite lifting infrastructure.
 
 This README follows the economical proof implemented in the Lean development.
