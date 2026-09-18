@@ -364,31 +364,37 @@ The function $`F_r`$ depends only on the bits $`s_i`$ and is unchanged by flippi
 
 ### 6.1. A necessary condition for being a boundary
 
-Let
+To prove $`\eta_r^r\neq0`$, we must show that its representing cocycle is not a boundary. A boundary in degree $`r`$ is the differential of a degree-$`(r-1)`$ cochain. Such a cochain assigns one locally constant function to each intersection obtained by omitting one of the opens:
 
 ```math
-C_r=\prod_{i=0}^{r}D_i,
+W_{\widehat i}=\bigcap_{j\neq i}W_j
+\qquad(0\leq i\leq r).
 ```
 
-and let $`\sigma_r`$ flip all its bits. Call a function $`f:C_r\to\mathbf F_2`$ *almost constant* in coordinate $`i`$ if, with all other coordinates fixed, its restriction to $`D_i`$ is constant outside a finite set. The exceptional set and eventual value may depend on the other coordinates.
+Its differential restricts these functions to $`W_0\cap\cdots\cap W_r`$ and adds them; signs disappear over $`\mathbf F_2`$.
 
-Suppose the cocycle defined by $`F_r`$ were a boundary. Since signs disappear over $`\mathbf F_2`$, pulling back to $`C_r`$ would give
+Evaluate these functions on the orbits of finite-coordinate tuples in
 
 ```math
-F_r=\sum_{i=0}^{r}f_i,
+C_r=\prod_{i=0}^{r}D_i
+=\prod_{i=0}^{r}(A_i\times\mathbf F_2),
 ```
 
-where $`f_i`$ is the pullback of a continuous function on
+and call the resulting functions $`f_i:C_r\to\mathbf F_2`$. Thus, if our cocycle were a boundary, we would have
 
 ```math
-W_{\widehat i}=\bigcap_{j\neq i}W_j.
+F_r=\sum_{i=0}^{r}f_i.
 ```
 
-Each $`f_i`$ is invariant under $`\sigma_r`$, because it comes from the quotient. It is almost constant in coordinate $`i`$: fix all the other finite coordinates and allow coordinate $`i`$ to vary over $`D_i^+`$. This defines a continuous map into $`W_{\widehat i}`$, including at infinity. Here $`r\geq1`$ is essential, since another coordinate remains finite. A continuous map $`D_i^+\to\mathbf F_2`$ is constant outside a finite subset of $`D_i`$, by continuity at infinity.
+Each summand would satisfy two properties:
 
-We only need this necessary condition for boundaries.
+1. **Flip invariance.** Write $`\sigma_r`$ for the simultaneous flip of all bits. Then $`f_i(\sigma_r x)=f_i(x)`$, since the two tuples represent the same orbit.
 
-**Lean.** Continuity at infinity is [almostConstant_of_continuous_onePoint](lean/Aoki/OnePoint.lean#L64). The two required properties of deleted-face sections are [invariant_deleted_section](lean/Aoki/Cech/BoundaryObstruction.lean#L142) and [along_deleted_section](lean/Aoki/Cech/BoundaryObstruction.lean#L152). The actual differential is evaluated as the sum of deleted-face restrictions by [cochainValue_differential](lean/Aoki/Cech/CochainValues.lean#L68).
+2. **Almost constancy.** Fix every coordinate except $`i`$. The function $`f_i`$ is constant outside a finite subset of $`D_i`$; we call this *almost constant* in coordinate $`i`$. Indeed, $`W_{\widehat i}`$ allows coordinate $`i`$ to be infinity. Since $`r\geq1`$, another coordinate remains finite, so the orbit still lies in $`U_r`$. The function of coordinate $`i`$ therefore extends continuously to $`D_i^+`$. Continuity at infinity forces it to equal its value there outside a finite set, because neighborhoods of infinity are cofinite and $`\mathbf F_2`$ is discrete. The exceptional set and constant may depend on the other coordinates.
+
+Section 6.3 will rule out any decomposition of $`F_r`$ with these two properties, proving nonvanishing.
+
+**Lean.** The differential is the sum of the omitted-intersection restrictions by [cochainValue_differential](lean/Aoki/Cech/CochainValues.lean#L68). Flip invariance and almost constancy are [invariant_deleted_section](lean/Aoki/Cech/BoundaryObstruction.lean#L142) and [along_deleted_section](lean/Aoki/Cech/BoundaryObstruction.lean#L152), using continuity at infinity via [almostConstant_of_continuous_onePoint](lean/Aoki/OnePoint.lean#L64).
 
 ### 6.2. Uniform thinning
 
