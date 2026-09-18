@@ -661,13 +661,28 @@ for every abelian sheaf $`\mathcal M`$. This proves the universal lower bound an
 | The complete existence theorem | [Aoki.aoki_question_2_14](lean/Aoki/Main.lean#L31) |
 | Universal size minimality | [Aoki.aoki_question_2_14_minimality](lean/Aoki/Main.lean#L47) |
 
-The code uses Boolean bits and the field with two elements. Its recursive configuration type with index $`r`$ has $`r+1`$ coordinates; its alternating function with index $`r`$ is exactly $`F_r`$ above. Some inductive helper theorems use an index one less than the positive degree. The final theorem uses the same $`r`$ as Theorem 2.1.
+The code represents bits by Booleans and computes their sums and products in $`\mathbf F_2`$. A configuration indexed by $`r`$ has $`r+1`$ coordinates, numbered $`0,\ldots,r`$, and the function called “alternating” is $`F_r`$. Some helper proofs shift the index by one; the final theorem uses the same $`r`$ as Theorem 2.1.
 
-The free integral sheaf on the whole space is identified with exactly the constant integral object used in Mathlib’s definition of ordinary sheaf cohomology. The module resolution and the integral resolution are both proved projective and exact. Their comparison is constructed from the identical section-valued Hom complexes; no assertion that forgetting module structure preserves projectives or injectives is needed.
+**Ordinary cohomology.** The formalization uses two versions of the resolution from Section 4: one resolving $`\underline{\mathbb Z}`$ in abelian sheaves, and one resolving $`\underline{\mathbf F}_2`$ in sheaves of $`\mathbf F_2`$-vector spaces. Both are proved projective and exact. Applying $`\mathrm{Hom}(-,\underline{\mathbf F}_2)`$ in the respective categories gives the same Čech cochains and differential. This yields the proved comparison [cupCohomologyAddEquiv](lean/Aoki/Cech/CupCohomology.lean#L86):
 
-The cup operation is defined by transporting the standard constant-module Yoneda product through this proved comparison. The proof checks the explicit lift and its product formula. It does not invoke an independently defined Mathlib sheaf cup-product operation.
+```math
+H^k(U_r;\mathbf F_2)
+\cong
+\mathrm{Ext}^k_{\mathrm{Sh}_{\mathbf F_2}(U_r)}
+(\underline{\mathbf F}_2,\underline{\mathbf F}_2).
+```
 
-The gauge sections also suggest the familiar interpretation of $`\eta_r`$ as the class of a double cover. A torsor-classification equivalence is not formalized here and is not needed by the theorem. Likewise, the proof of nonvanishing uses the necessary boundary condition of Section 6.1; it does not need an additional converse characterization of all boundaries.
+Here $`\mathrm{Sh}_{\mathbf F_2}(U_r)`$ denotes the category of sheaves of $`\mathbf F_2`$-vector spaces. The left side is Mathlib’s ordinary sheaf cohomology.
+
+**Cup products.** The Ext groups on the right have the Yoneda product, obtained by composing extension classes. We use the comparison above to define cup multiplication on ordinary cohomology. Lean verifies that the explicit lift in Section 5.2 computes this product, proving
+
+```math
+\eta_r^r=[F_r].
+```
+
+Thus the combinatorial nonvanishing argument proves nonvanishing of the cup power. The product is implemented through this construction; no independently defined Mathlib sheaf cup-product operation is invoked.
+
+**Scope.** The class $`\eta_r`$ is defined directly from its transition cocycle. The interpretation via classification of double covers is not formalized. For nonvanishing, Lean proves that every boundary has the decomposition described in Section 6.1, then rules out such a decomposition for $`F_r`$. No converse characterization of boundaries is needed.
 
 ### 8.2. Reproducing the verification
 
