@@ -247,23 +247,62 @@ for every abelian sheaf $`\mathcal M`$. With constant $`\mathbf F_2`$ coefficien
 
 ### 5.1. The transition cocycle
 
-On $`W_i\cap W_j`$, let
+We construct a degree-one cohomology class by comparing the local choices of representative from Section 3.2. Recall that a point $`u\in U_r`$ is an orbit $`\{x,\tau x\}`$. The two representatives are distinct because we removed the only fixed point $`p`$. Write
 
 ```math
-z_{ij}=s_i+s_j\in\mathbf F_2,
+E=K\setminus\{p\},
+\qquad
+\pi:E\longrightarrow U_r
 ```
 
-using any representative of the orbit. This is well-defined: simultaneous bit flip changes both summands by $`1`$. It is locally constant, as can be seen on the compact-open cells. Moreover,
+for the quotient map, whose fibers consist of these pairs.
+
+On $`W_i`$, the $`i`$-th coordinate is finite. For a representative $`x`$, write this coordinate as $`x_i=(a_i,s_i)`$, where $`a_i\in A_i`$ and $`s_i\in\mathbf F_2=\{0,1\}`$. Thus $`s_i`$ is simply the bit in that coordinate. It belongs to the chosen representative: replacing $`x`$ by $`\tau x`$ changes $`s_i`$ to $`s_i+1`$.
+
+Exactly one representative has $`i`$-th bit zero. Denote this choice by
 
 ```math
-z_{ij}+z_{jk}=z_{ik}.
+\ell_i:W_i\longrightarrow E,
+\qquad
+\pi(\ell_i(u))=u.
 ```
 
-Thus the ordered degree-one cochain $`z`$ is closed and defines a class
+Section 3.2 shows that $`\ell_i`$ is continuous. The two choices $`\ell_i`$ and $`\tau\circ\ell_i`$ identify the preimage of $`W_i`$ with two disjoint copies of $`W_i`$. This is the local description of the double cover $`\pi`$.
+
+On an overlap $`W_i\cap W_j`$, we have two rules for choosing a representative: make bit $`i`$ zero, or make bit $`j`$ zero. The transition function records whether these rules choose the same representative or opposite ones:
+
+```math
+z_{ij}(u)=
+\begin{cases}
+0,&\ell_j(u)=\ell_i(u),\\
+1,&\ell_j(u)=\tau(\ell_i(u)).
+\end{cases}
+```
+
+To compute this function, take either representative $`x`$ of $`u`$ and read its two bits $`s_i,s_j`$. Obtaining $`\ell_i(u)`$ requires a flip precisely when $`s_i=1`$, and similarly for $`\ell_j(u)`$. The two choices therefore agree exactly when the bits agree. In arithmetic modulo two, this gives the formula
+
+```math
+z_{ij}(u)=s_i+s_j\in\mathbf F_2.
+```
+
+The formula is independent of the representative, since $`(s_i+1)+(s_j+1)=s_i+s_j`$ in $`\mathbf F_2`$. It is also locally constant: on each compact-open piece of $`W_i\cap W_j`$ from Lemma 3.1, the representative with $`i`$-th bit zero has a fixed $`j`$-th bit, so $`z_{ij}`$ is constant there. Thus $`z_{ij}`$ is a section of the constant sheaf $`\mathbf F_2`$ on the overlap.
+
+On a triple overlap $`W_i\cap W_j\cap W_k`$, changing from the $`i`$-choice to the $`j`$-choice and then to the $`k`$-choice has the same effect as changing directly from the $`i`$-choice to the $`k`$-choice. Algebraically,
+
+```math
+z_{ij}+z_{jk}
+=(s_i+s_j)+(s_j+s_k)
+=s_i+s_k
+=z_{ik}.
+```
+
+A degree-one cochain in the ordered Čech complex is a family of sections on the pairwise overlaps, indexed by $`i\lt j`$. The functions $`z_{ij}`$ give such a cochain $`z`$, and the identity on triple overlaps is exactly the cocycle condition $`dz=0`$. Since Section 4.2 identifies the cohomology of this complex with ordinary sheaf cohomology, we obtain a class
 
 ```math
 \eta_r=[z]\in H^1(U_r;\mathbf F_2).
 ```
+
+This constructs the class; Section 6 will prove that its $`r`$-th power is nonzero.
 
 **Lean.** The functions and cocycle are [transitionOnOpen](lean/Aoki/Cech/Cocycle.lean#L70), [transitionCochain](lean/Aoki/Cech/Cocycle.lean#L155), and [transitionCochain_cocycle](lean/Aoki/Cech/Cocycle.lean#L167). The ordinary cohomology class is [degreeOneClass](lean/Aoki/Cech/NonzeroClass.lean#L51).
 
