@@ -392,7 +392,17 @@ Each summand would satisfy two properties:
 
 2. **Almost constancy.** With all other coordinates fixed, $`f_i`$ is constant outside a finite subset of $`D_i`$. We call this *almost constant* in coordinate $`i`$ and prove it below.
 
-**Proposition (almost constancy).** Assume $`r\geq1`$ and fix $`0\leq i\leq r`$. Let $`b_i:W_{\widehat i}\to\mathbf F_2`$ be locally constant, and let $`f_i:C_r\to\mathbf F_2`$ be its pullback to finite-coordinate tuples. After fixing all coordinates except $`i`$, there exist a finite set $`E\subseteq D_i`$ and a value $`c\in\mathbf F_2`$ such that $`f_i=c`$ whenever the $`i`$-th coordinate lies outside $`E`$. Both $`E`$ and $`c`$ may depend on the fixed coordinates.
+**Proposition (almost constancy).** Assume $`r\geq1`$ and fix $`0\leq i\leq r`$. Let $`b_i:W_{\widehat i}\to\mathbf F_2`$ be locally constant, and let $`f_i:C_r\to\mathbf F_2`$ be its pullback to finite-coordinate tuples. Then
+
+```math
+\begin{aligned}
+&\forall (x_j)_{j\ne i}\in\prod_{j\ne i}D_j,\\
+&\quad \exists E\subseteq D_i\text{ finite},\ \exists c\in\mathbf F_2,\ \forall t\in D_i\setminus E,\\
+&\qquad f_i(x_0,\ldots,x_{i-1},t,x_{i+1},\ldots,x_r)=c.
+\end{aligned}
+```
+
+Here $`E`$ and $`c`$ may depend on the fixed coordinates $`(x_j)_{j\ne i}`$, but not on $`t`$.
 
 *Proof.* Fix $`x_j\in D_j`$ for each $`j\neq i`$. Allow coordinate $`i`$ to vary over $`D_i^+=D_i\cup\{\infty\}`$, and send $`t\in D_i^+`$ to the orbit of the tuple with $`i`$-th coordinate $`t`$ and other coordinates $`x_j`$. This gives a continuous map
 
