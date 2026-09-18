@@ -390,7 +390,19 @@ Each summand would satisfy two properties:
 
 1. **Flip invariance.** Write $`\sigma_r`$ for the simultaneous flip of all bits. Then $`f_i(\sigma_r x)=f_i(x)`$, since the two tuples represent the same orbit.
 
-2. **Almost constancy.** Fix every coordinate except $`i`$. The function $`f_i`$ is constant outside a finite subset of $`D_i`$; we call this *almost constant* in coordinate $`i`$. Indeed, $`W_{\widehat i}`$ allows coordinate $`i`$ to be infinity. Since $`r\geq1`$, another coordinate remains finite, so the orbit still lies in $`U_r`$. The function of coordinate $`i`$ therefore extends continuously to $`D_i^+`$. Continuity at infinity forces it to equal its value there outside a finite set, because neighborhoods of infinity are cofinite and $`\mathbf F_2`$ is discrete. The exceptional set and constant may depend on the other coordinates.
+2. **Almost constancy.** With all other coordinates fixed, $`f_i`$ is constant outside a finite subset of $`D_i`$. We call this *almost constant* in coordinate $`i`$ and prove it below.
+
+**Proposition (almost constancy).** Assume $`r\geq1`$ and fix $`0\leq i\leq r`$. Let $`b_i:W_{\widehat i}\to\mathbf F_2`$ be locally constant, and let $`f_i:C_r\to\mathbf F_2`$ be its pullback to finite-coordinate tuples. After fixing all coordinates except $`i`$, there exist a finite set $`E\subseteq D_i`$ and a value $`c\in\mathbf F_2`$ such that $`f_i=c`$ whenever the $`i`$-th coordinate lies outside $`E`$. Both $`E`$ and $`c`$ may depend on the fixed coordinates.
+
+*Proof.* Fix $`x_j\in D_j`$ for each $`j\neq i`$. Allow coordinate $`i`$ to vary over $`D_i^+=D_i\cup\{\infty\}`$, and send $`t\in D_i^+`$ to the orbit of the tuple with $`i`$-th coordinate $`t`$ and other coordinates $`x_j`$. This gives a continuous map
+
+```math
+\iota:D_i^+\longrightarrow W_{\widehat i}.
+```
+
+Indeed, all other coordinates remain finite, as required by $`W_{\widehat i}`$, and $`r\geq1`$ ensures that the tuple never becomes the removed all-infinite point. Continuity follows from the coordinate inclusion and the quotient map.
+
+The composite $`g=b_i\circ\iota:D_i^+\to\mathbf F_2`$ is continuous and agrees with the chosen slice of $`f_i`$ on $`D_i`$. Since $`\mathbf F_2`$ is discrete, $`g^{-1}(\{g(\infty)\})`$ is an open neighborhood of infinity. Such a neighborhood contains all but finitely many points of $`D_i`$. Taking those exceptional points as $`E`$ and $`c=g(\infty)`$ proves the claim. $`\square`$
 
 Section 6.3 will rule out any decomposition of $`F_r`$ with these two properties, proving nonvanishing.
 
