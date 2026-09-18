@@ -349,14 +349,14 @@ Starting with $`c_1=z`$ and applying $`T`$ repeatedly therefore gives
 \qquad [c_k]=\eta_r^k.
 ```
 
-In degree $`r`$, the only increasing list is $`[0,\ldots,r]`$. All coordinates are finite on this intersection, so substituting $`z_{ij}=s_i+s_j`$ gives the representative
+In degree $`r`$, the only increasing list is $`[0,\ldots,r]`$, corresponding to $`W_0\cap\cdots\cap W_r`$. All coordinates are finite here. Write $`F_r`$ for the function on tuples $`((a_i,s_i))_{i=0}^r`$ obtained by substituting $`z_{ij}=s_i+s_j`$:
 
 ```math
 F_r((a_i,s_i)_{i=0}^{r})
-=\prod_{j=0}^{r-1}(s_j+s_{j+1})
+=\prod_{j=0}^{r-1}(s_j+s_{j+1})\in\mathbf F_2.
 ```
 
-for $`\eta_r^r`$. Section 6 proves that this function is not a boundary.
+The function $`F_r`$ depends only on the bits $`s_i`$ and is unchanged by flipping them all. It therefore defines a cocycle on the quotient intersection representing $`\eta_r^r`$. Section 6 proves that this cocycle is not a boundary.
 
 **Lean.** The lift, differential identity, and product formula are [cupLift](lean/Aoki/Cech/CupProduct.lean#L45), [cupLift_chain_signed](lean/Aoki/Cech/CupProduct.lean#L197), and [ι_cupIterate](lean/Aoki/Cech/CupProduct.lean#L231). The Yoneda multiplication rule is [extMk_comp_of_lift](lean/Aoki/Homological/ExtMkComposition.lean#L116), applied in [yonedaPower_cupExtClass](lean/Aoki/Cech/CupExt.lean#L62). The comparison with ordinary cohomology is [cupCohomologyAddEquiv](lean/Aoki/Cech/CupCohomology.lean#L86); [cupProduct](lean/Aoki/Cech/CupCohomology.lean#L118) transports the Yoneda product through it. The final identity is [cupPower_degreeOneClass_top](lean/Aoki/Cech/CupNonvanishing.lean#L49).
 
@@ -372,7 +372,7 @@ C_r=\prod_{i=0}^{r}D_i,
 
 and let $`\sigma_r`$ flip all its bits. Call a function $`f:C_r\to\mathbf F_2`$ *almost constant* in coordinate $`i`$ if, with all other coordinates fixed, its restriction to $`D_i`$ is constant outside a finite set. The exceptional set and eventual value may depend on the other coordinates.
 
-Suppose the top cochain $`F_r`$ were a boundary. Since signs disappear over $`\mathbf F_2`$, it would pull back to a sum
+Suppose the cocycle defined by $`F_r`$ were a boundary. Since signs disappear over $`\mathbf F_2`$, pulling back to $`C_r`$ would give
 
 ```math
 F_r=\sum_{i=0}^{r}f_i,
