@@ -18,7 +18,9 @@ Throughout, a *locally profinite Hausdorff space* means a locally compact, Hausd
 
 ## 2. The theorem
 
-**Theorem 2.1 — Sharp cup-power examples and size bounds.** For every integer $`r\geq 1`$, there exist a locally profinite Hausdorff space $`U_r`$ and a class $`\eta_r\in H^1(U_r;\mathbf F_2)`$ such that
+**Theorem 2.1 (Sharp cup powers and size bounds).** Let $`r\geq 1`$ be an integer.
+
+**(i) Examples.** There exist a locally profinite Hausdorff space $`U_r`$ and a class $`\eta_r\in H^1(U_r;\mathbf F_2)`$ such that
 
 ```math
 |U_r|=w(U_r)=\aleph_r,
@@ -28,30 +30,21 @@ Throughout, a *locally profinite Hausdorff space* means a locally compact, Hausd
 \eta_r^{r+1}=0.
 ```
 
-For every abelian sheaf $`\mathcal M`$ on $`U_r`$,
+Moreover, $`H^q(U_r;\mathcal M)=0`$ for every abelian sheaf $`\mathcal M`$ and every $`q\gt r`$. Thus $`U_r`$ has cohomological dimension exactly $`r`$.
+
+**(ii) Optimality (Wiegand).** Every locally profinite Hausdorff space $`V`$ with $`H^r(V;\mathcal M)\neq 0`$ for some abelian sheaf $`\mathcal M`$ satisfies
 
 ```math
-H^q(U_r;\mathcal M)=0
-\qquad(q\gt r).
-```
-
-Conversely, if $`V`$ is any locally profinite Hausdorff space and $`\mathcal M`$ is any abelian sheaf on $`V`$, then
-
-```math
-H^r(V;\mathcal M)\neq 0
-\quad\Longrightarrow\quad
 |V|\geq\aleph_r
 \quad\text{and}\quad
 w(V)\geq\aleph_r.
 ```
 
-The converse is a consequence of [Wiegand’s classical cohomological-dimension bound](https://doi.org/10.1307/mmj/1029000311), recalled and formalized in Section 7.
+Consequently, $`\aleph_r`$ is both the least cardinality and the least weight of a locally profinite Hausdorff space admitting a nonzero product of $`r`$ degree-one $`\mathbf F_2`$ classes—even when all factors are required to coincide.
 
-In particular, the least possible cardinality, and separately the least possible weight, of a locally profinite Hausdorff space supporting a nonzero product of $`r`$ degree-one constant-$`\mathbf F_2`$ classes is exactly $`\aleph_r`$.
+Part (ii) follows from [Wiegand’s classical cohomological-dimension bound](https://doi.org/10.1307/mmj/1029000311), recalled and formalized in Section 7.
 
-The last assertion follows because such a product is a nonzero degree-$`r`$ class, whereas the examples attain both bounds. The all-coefficient vanishing and the nonzero degree-$`r`$ class also show that $`U_r`$ has cohomological dimension exactly $`r`$.
-
-**Lean.** The three parts of the theorem are assembled as [Aoki.aoki_question_2_14](lean/Aoki/Main.lean#L31), [Aoki.aoki_question_2_14_minimality](lean/Aoki/Main.lean#L47), and [Aoki.aoki_example_cohomology_above](lean/Aoki/Main.lean#L56). The first theorem includes the topological properties, both cardinal equalities, and the two cup-power assertions.
+**Lean.** The examples and cup powers are [Aoki.aoki_question_2_14](lean/Aoki/Main.lean#L31); all-coefficient vanishing is [Aoki.aoki_example_cohomology_above](lean/Aoki/Main.lean#L56); optimality is [Aoki.aoki_question_2_14_minimality](lean/Aoki/Main.lean#L47).
 
 ### Proof strategy
 
