@@ -32,7 +32,7 @@ For every abelian sheaf $`\mathcal M`$ on $`U_r`$,
 
 ```math
 H^q(U_r;\mathcal M)=0
-\qquad(q>r).
+\qquad(q\gt r).
 ```
 
 Conversely, if $`V`$ is any locally profinite Hausdorff space and $`\mathcal M`$ is any abelian sheaf on $`V`$, then
@@ -185,7 +185,7 @@ Inclusions of opens induce maps between these representing sheaves, and $`P(X)\c
 For the cover $`W_0,\ldots,W_r`$, define
 
 ```math
-P_k=\bigoplus_{0\leq i_0<\cdots<i_k\leq r}
+P_k=\bigoplus_{0\leq i_0\lt \cdots\lt i_k\leq r}
 P(W_{i_0}\cap\cdots\cap W_{i_k}).
 ```
 
@@ -219,7 +219,7 @@ H^q(U_r;\mathcal M)
 There are no increasing faces of degree greater than $`r`$, hence
 
 ```math
-H^q(U_r;\mathcal M)=0\qquad(q>r)
+H^q(U_r;\mathcal M)=0\qquad(q\gt r)
 ```
 
 for every abelian sheaf $`\mathcal M`$. With constant $`\mathbf F_2`$ coefficients, the degree-$`k`$ cochains are the locally constant functions on the $`W_I`$ with $`|I|=k+1`$.
@@ -328,9 +328,9 @@ We only need this necessary condition for boundaries.
 
 ### 6.2. Uniform thinning
 
-**Lemma 6.1.** Let $`P`$ be infinite, let $`|P|<|A|`$, and let $`N_y\subseteq A\times\mathbf F_2`$ be finite for every $`y\in P`$. There exists $`a\in A`$ such that both $`(a,0)`$ and $`(a,1)`$ avoid every $`N_y`$.
+**Lemma 6.1.** Let $`P`$ be infinite, let $`|P|\lt |A|`$, and let $`N_y\subseteq A\times\mathbf F_2`$ be finite for every $`y\in P`$. There exists $`a\in A`$ such that both $`(a,0)`$ and $`(a,1)`$ avoid every $`N_y`$.
 
-*Proof.* The union of the first-coordinate projections of the $`N_y`$ has cardinality at most $`|P|\cdot\aleph_0=|P|<|A|`$. Choose $`a`$ outside this union. $`\square`$
+*Proof.* The union of the first-coordinate projections of the $`N_y`$ has cardinality at most $`|P|\cdot\aleph_0=|P|\lt |A|`$. Choose $`a`$ outside this union. $`\square`$
 
 This is a uniform choice over all $`y`$, rather than a separate choice for each configuration.
 
@@ -343,7 +343,7 @@ This is a uniform choice over all $`y`$, rather than a separate choice for each 
 *Proof.* We induct on $`r`$, starting at $`r=1`$. Given a putative decomposition, apply Lemma 6.1 to the finite exceptional sets of the last summand $`f_r`$, indexed by $`C_{r-1}`$. This is possible because
 
 ```math
-|C_{r-1}|=\aleph_{r-1}<\aleph_r=|A_r|.
+|C_{r-1}|=\aleph_{r-1}\lt \aleph_r=|A_r|.
 ```
 
 Choose $`a\in A_r`$ as in that lemma and define
@@ -361,7 +361,7 @@ The same eventual value occurs at both chosen points for every $`y`$, so $`\Delt
 F_0=1.
 ```
 
-For $`i<r`$, almost constancy in coordinate $`i`$ survives $`\Delta_a`$, by taking the union of the two finite exceptional sets. Invariance survives as well:
+For $`i\lt r`$, almost constancy in coordinate $`i`$ survives $`\Delta_a`$, by taking the union of the two finite exceptional sets. Invariance survives as well:
 
 ```math
 \begin{aligned}
@@ -419,7 +419,7 @@ We now prove the all-coefficient bound used for optimality. This argument is ind
 
 ### 7.1. Transfinite extensions preserve a projective-dimension bound
 
-We use projective dimension in its Ext-vanishing sense: $`\mathrm{pd}(P)\leq n`$ means that $`\mathrm{Ext}^d(P,M)=0`$ for every $`M`$ and every $`d>n`$.
+We use projective dimension in its Ext-vanishing sense: $`\mathrm{pd}(P)\leq n`$ means that $`\mathrm{Ext}^d(P,M)=0`$ for every $`M`$ and every $`d\gt n`$.
 
 **Lemma 7.1.** In an abelian category with enough injectives, let a continuous well-ordered filtration start at zero, have monomorphic successor maps, and have colimit $`P`$. If every successive quotient has projective dimension at most $`n`$, then $`\mathrm{pd}(P)\leq n`$.
 
@@ -433,7 +433,7 @@ For an object $`Q`$, the condition $`\mathrm{Ext}^1(Q,Y)=0`$ is equivalent to ev
 
 At a successor stage, extend the preceding lift using injectivity of $`I`$. Its discrepancy from the desired map to $`C`$ vanishes on the preceding stage, so it factors through the successive quotient. Lift that discrepancy to $`I`$, and use it to correct the extension. At a limit stage, continuity of the filtration gives a unique map from the compatible earlier lifts. The colimit therefore admits a lift, proving $`\mathrm{Ext}^1(P,Y)=0`$.
 
-For higher positive degrees, dimension-shift in the coefficient variable using injective presentations. Vanishing of a fixed degree on all successive quotients becomes the degree-one vanishing condition just treated, and hence holds for $`P`$. Apply this in every degree $`d>n`$ for every coefficient object. $`\square`$
+For higher positive degrees, dimension-shift in the coefficient variable using injective presentations. Vanishing of a fixed degree on all successive quotients becomes the degree-one vanishing condition just treated, and hence holds for $`P`$. Apply this in every degree $`d\gt n`$ for every coefficient object. $`\square`$
 
 This proof uses the continuity of the given filtration; it does not require Ext to commute with arbitrary filtered colimits.
 
@@ -450,7 +450,7 @@ This proof uses the continuity of the given filtration; it does not require Ext 
 *Proof.* For $`n=0`$, enumerate the compact opens as $`K_0,K_1,\ldots`$, padding with empty sets if necessary. Set
 
 ```math
-L_j=K_j\setminus\bigcup_{i<j}K_i.
+L_j=K_j\setminus\bigcup_{i\lt j}K_i.
 ```
 
 Every $`L_j`$ is compact open: it is open, and it is a closed subset of the compact set $`K_j`$. The $`L_j`$ are disjoint and cover $`W`$. Lemma 4.1 makes $`P(W)`$ projective.
@@ -458,9 +458,9 @@ Every $`L_j`$ is compact open: it is open, and it is a closed subset of the comp
 Suppose the assertion is known for $`n`$. Index a cover of size at most $`\aleph_{n+1}`$ by the initial ordinal $`\omega_{n+1}`$, again allowing empty terms, and write
 
 ```math
-W=\bigcup_{\alpha<\omega_{n+1}}K_\alpha,
+W=\bigcup_{\alpha\lt \omega_{n+1}}K_\alpha,
 \qquad
-W_\alpha=\bigcup_{\beta<\alpha}K_\beta.
+W_\alpha=\bigcup_{\beta\lt \alpha}K_\beta.
 ```
 
 The sheaves $`P(W_\alpha)`$ form a continuous filtration starting at zero with colimit $`P(W)`$. Here inclusions of opens give monomorphisms, and the free-open sheaf of a directed union is the colimit of the corresponding free-open sheaves. The latter assertion follows also from the representing property: compatible sections on an increasing open cover glue to a unique section on its union.
@@ -476,12 +476,12 @@ The binary Mayer–Vietoris sequence identifies the successive quotient $`Q_\alp
 
 For completeness, this sequence comes from the exact sequence of free-open sheaves for two opens: on each stalk, the intersection maps into the sum of the two opens by the signed diagonal $`u\mapsto(u,-u)`$, and the next map adds the two inclusions into the union. Quotienting by the first open gives the displayed sequence.
 
-Since $`\alpha<\omega_{n+1}`$, the cardinality of $`\alpha`$ is at most $`\aleph_n`$. Thus
+Since $`\alpha\lt \omega_{n+1}`$, the cardinality of $`\alpha`$ is at most $`\aleph_n`$. Thus
 
 ```math
 W_\alpha\cap K_\alpha
 =
-\bigcup_{\beta<\alpha}(K_\beta\cap K_\alpha)
+\bigcup_{\beta\lt \alpha}(K_\beta\cap K_\alpha)
 ```
 
 is a union of at most $`\aleph_n`$ compact opens. The induction hypothesis gives projective dimension at most $`n`$ for its free-open sheaf, and $`P(K_\alpha)`$ is projective. The long exact Ext sequence therefore gives $`\mathrm{pd}(Q_\alpha)\leq n+1`$. Lemma 7.1 now gives $`\mathrm{pd}(P(W))\leq n+1`$, completing the induction. $`\square`$
@@ -491,7 +491,7 @@ is a union of at most $`\aleph_n`$ compact opens. The induction hypothesis gives
 Taking $`W=X`$ and using $`P(X)\cong\underline{\mathbb Z}`$, we obtain
 
 ```math
-H^d(X;\mathcal M)=0\qquad(d>n)
+H^d(X;\mathcal M)=0\qquad(d\gt n)
 ```
 
 for every abelian sheaf $`\mathcal M`$, whenever $`X`$ has a compact-open cover of cardinality at most $`\aleph_n`$.
@@ -514,7 +514,7 @@ The family of all compact opens covers $`V`$. Proposition 7.2 therefore implies 
 Now let $`r\geq1`$. A cardinal strictly below $`\aleph_r`$ is at most $`\aleph_{r-1}`$. Hence
 
 ```math
-|V|<\aleph_r\ \text{or}\ w(V)<\aleph_r
+|V|\lt \aleph_r\ \text{or}\ w(V)\lt \aleph_r
 \quad\Longrightarrow\quad
 H^r(V;\mathcal M)=0
 ```
