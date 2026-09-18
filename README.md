@@ -432,66 +432,99 @@ This is a uniform choice over all $`y`$, rather than a separate choice for each 
 
 **Lemma 6.2.** For $`r\geq1`$, $`F_r`$ cannot be written as a sum $`\sum_{i=0}^{r}f_i`$ in which every $`f_i`$ is invariant under $`\sigma_r`$ and almost constant in coordinate $`i`$.
 
-*Proof.* We induct on $`r`$, starting at $`r=1`$. Given a putative decomposition, apply Lemma 6.1 to the finite exceptional sets of the last summand $`f_r`$, indexed by $`C_{r-1}`$. This is possible because
+*Proof.* We induct on $`r`$, starting at $`r=1`$. The main move is to evaluate a proposed decomposition twice, changing only the last bit, and add the equations. A suitable choice of the last label makes $`f_r`$ cancel. All additions below are in $`\mathbf F_2`$, so $`c+c=0`$.
+
+Suppose that $`F_r=f_0+\cdots+f_r`$. Write an input as $`(y,(a,s))`$, where $`y\in C_{r-1}`$ contains the first $`r`$ coordinates and $`(a,s)\in A_r\times\mathbf F_2`$ is the last coordinate.
+
+For each fixed $`y`$, almost constancy gives a finite set $`N_y\subseteq D_r`$ outside which $`f_r(y,-)`$ is constant. We need one label $`a`$ such that both $`(a,0)`$ and $`(a,1)`$ avoid every $`N_y`$. Lemma 6.1 provides this, since
 
 ```math
-|C_{r-1}|=\aleph_{r-1}\lt \aleph_r=|A_r|.
+|C_{r-1}|=\aleph_{r-1}\lt\aleph_r=|A_r|.
 ```
 
-Choose $`a\in A_r`$ as in that lemma and define
+Indeed, each $`y`$ excludes only the finitely many labels occurring in $`N_y`$, so together they exclude at most $`\aleph_{r-1}`$ labels. Choose $`a`$ outside all these exclusions. Then
 
 ```math
-(\Delta_a f)(y)=f(y,(a,0))+f(y,(a,1)),
-\qquad y\in C_{r-1}.
+f_r(y,(a,0))+f_r(y,(a,1))=0
+\qquad\text{for every }y\in C_{r-1}.
 ```
 
-The same eventual value occurs at both chosen points for every $`y`$, so $`\Delta_a f_r=0`$. Direct calculation gives
+The constant value may depend on $`y`$; cancellation only requires the two values at the same $`y`$ to agree.
+
+For $`i\lt r`$, put
 
 ```math
-\Delta_a F_r=F_{r-1},
-\qquad
-F_0=1.
+h_i(y)=f_i(y,(a,0))+f_i(y,(a,1)).
 ```
 
-For $`i\lt r`$, almost constancy in coordinate $`i`$ survives $`\Delta_a`$, by taking the union of the two finite exceptional sets. Invariance survives as well:
+Adding the two evaluations of the proposed decomposition now gives
+
+```math
+F_r(y,(a,0))+F_r(y,(a,1))
+=\sum_{i=0}^{r-1}h_i(y).
+```
+
+For $`r\geq2`$, let $`s_{r-1}`$ be the last bit in $`y`$. The left side simplifies to
 
 ```math
 \begin{aligned}
-(\Delta_a f_i)(\sigma_{r-1}y)
-&=f_i(\sigma_{r-1}y,(a,0))
-  +f_i(\sigma_{r-1}y,(a,1))\\
-&=f_i(y,(a,1))+f_i(y,(a,0))\\
-&=(\Delta_a f_i)(y).
+F_r(y,(a,0))+F_r(y,(a,1))
+&=F_{r-1}(y)\bigl((s_{r-1}+0)+(s_{r-1}+1)\bigr)\\
+&=F_{r-1}(y).
 \end{aligned}
 ```
 
-The use of two points with the same base coordinate is what makes the flip exchange the two summands. Therefore, when $`r\geq2`$, applying $`\Delta_a`$ produces a prohibited decomposition
+Thus we have a decomposition with one fewer coordinate:
 
 ```math
-F_{r-1}=\sum_{i=0}^{r-1}\Delta_a f_i,
+F_{r-1}=\sum_{i=0}^{r-1}h_i.
 ```
 
-contradicting the induction hypothesis.
+Each new summand has the required properties:
 
-For the base case $`r=1`$, retain the slice
+- **Almost constancy.** Fix every coordinate of $`y`$ except $`i`$. Each of the two functions defining $`h_i`$ is constant outside a finite exceptional set. Outside the union of those sets, their sum is constant too.
+- **Flip invariance.** Invariance of $`f_i`$ gives
 
 ```math
-g(x)=f_0(x,(a,0)),
-\qquad x\in D_0.
+\begin{aligned}
+f_i(\sigma_{r-1}y,(a,0))&=f_i(y,(a,1)),\\
+f_i(\sigma_{r-1}y,(a,1))&=f_i(y,(a,0)).
+\end{aligned}
 ```
 
-It is almost constant. Invariance of $`f_0`$ gives $`g(\sigma_0x)=f_0(x,(a,1))`$, so the assumed decomposition implies
+Flipping $`y`$ therefore exchanges the two terms defining $`h_i`$, leaving their sum unchanged. The resulting decomposition of $`F_{r-1}`$ contradicts the induction hypothesis.
+
+It remains to prove the base case $`r=1`$. The same cancellation of $`f_1`$ gives
+
+```math
+1=f_0(x,(a,0))+f_0(x,(a,1))
+\qquad(x\in D_0),
+```
+
+because the two values of $`F_1`$ add to $`s_0+(s_0+1)=1`$. Set
+
+```math
+g(x)=f_0(x,(a,0)).
+```
+
+Almost constancy of $`f_0`$ in coordinate $`0`$ gives a finite set $`E\subseteq D_0`$ and $`c\in\mathbf F_2`$ such that $`g(x)=c`$ for every $`x\in D_0\setminus E`$. Invariance of $`f_0`$ gives $`f_0(x,(a,1))=g(\sigma_0x)`$, so
 
 ```math
 g(x)+g(\sigma_0x)=1
 \qquad\text{for every }x\in D_0.
 ```
 
-Choose an entire two-element orbit outside a finite exceptional set for $`g`$. Both values there equal the same constant $`c`$, making the left side $`c+c=0`$, a contradiction. Notice that $`g`$ itself need not be invariant; only the displayed relation is used. This completes the induction. $`\square`$
+Since $`A_0`$ is infinite, choose $`b\in A_0`$ such that both $`(b,0)`$ and $`(b,1)`$ lie outside $`E`$. Taking $`x=(b,0)`$, both terms on the left equal $`c`$, giving
+
+```math
+1=g((b,0))+g((b,1))=c+c=0.
+```
+
+This contradiction proves the base case and completes the induction. $`\square`$
 
 Starting at $`r=1`$ is necessary: for $`r=0`$, the function $`F_0=1`$ already is a single invariant, almost-constant summand, so there is no analogous nondecomposition assertion.
 
-**Lean.** The difference identities are [delta_alternating](lean/Aoki/Functions.lean#L67) and [invariant_delta](lean/Aoki/Functions.lean#L73). The base-case contradiction is [not_flip_sum_one](lean/Aoki/AlmostConstant.lean#L78), used in [alternating_one_not_boundary](lean/Aoki/Nonvanishing.lean#L73). The induction step is [boundary_delta](lean/Aoki/Nonvanishing.lean#L51), and the final aleph specialization is [aleph_nondecomposition](lean/Aoki/Nonvanishing.lean#L120).
+**Lean.** The identities for adding the two evaluations are [delta_alternating](lean/Aoki/Functions.lean#L67) and [invariant_delta](lean/Aoki/Functions.lean#L73). The base-case contradiction is [not_flip_sum_one](lean/Aoki/AlmostConstant.lean#L78), used in [alternating_one_not_boundary](lean/Aoki/Nonvanishing.lean#L73). The induction step is [boundary_delta](lean/Aoki/Nonvanishing.lean#L51), and the final aleph specialization is [aleph_nondecomposition](lean/Aoki/Nonvanishing.lean#L120).
 
 ### 6.4. Conclusion of nonvanishing
 
