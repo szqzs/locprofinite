@@ -44,7 +44,7 @@ Consequently, $`\aleph_r`$ is both the least cardinality and the least weight of
 
 Part (ii) follows from [Wiegand’s classical cohomological-dimension bound](https://doi.org/10.1307/mmj/1029000311), recalled and formalized in Section 7.
 
-**Lean.** The examples and cup powers are formalized in [Aoki.aoki_question_2_14](lean/Aoki/Main.lean#L31), all-coefficient vanishing in [Aoki.aoki_example_cohomology_above](lean/Aoki/Main.lean#L56), and the universal lower bounds in [Aoki.aoki_question_2_14_minimality](lean/Aoki/Main.lean#L47). Optimality combines the lower bounds with the examples attaining them.
+**Lean.** The examples and cup powers are formalized in [Aoki.aoki_question_2_14](lean/Aoki/Main.lean#L31). The optimality part is formalized in [Aoki.aoki_example_cohomology_above](lean/Aoki/Main.lean#L56) and [Aoki.aoki_question_2_14_minimality](lean/Aoki/Main.lean#L47).
 
 ### Proof strategy
 
