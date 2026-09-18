@@ -14,7 +14,7 @@ We show that the sharp bound for a product of $`n+1`$ degree-one classes is $`\a
 
 Throughout, a *locally profinite Hausdorff space* means a locally compact, Hausdorff, totally disconnected space. Our examples are obtained by removing one point from a profinite space, so they also satisfy Aoki’s punctured-profinite convention. The *weight* $`w(X)`$ is the least cardinality of a basis for the topology. Cohomology means ordinary sheaf cohomology; $`\mathbf F_2`$ denotes the constant sheaf when used as a coefficient.
 
-**Formalization convention.** A paragraph labeled **Lean** identifies the checked declarations supporting the preceding result. These links point to the actual definitions and proofs, not to axioms recording the desired conclusions. Mathematical notation is kept independent of implementation details; Section 8 explains the few relevant differences in presentation.
+**Formalization convention.** A paragraph labeled **Lean** identifies the checked declarations supporting the preceding result. These links point to the actual definitions and proofs, not to axioms recording the desired conclusions. Mathematical notation is kept independent of implementation details.
 
 ## 2. The theorem
 
@@ -646,45 +646,6 @@ for every abelian sheaf $`\mathcal M`$. This proves the universal lower bound an
 **Lean.** The required covers and count of compact opens are [exists_point_indexed_compactOpen_cover](lean/Aoki/Topology/Weight.lean#L93) and [mk_compactOpens_le_weight](lean/Aoki/Topology/Weight.lean#L128). The strict bounds are [sheaf_cohomology_eq_zero_of_cardinal_lt_aleph](lean/Aoki/Sheaf/CardinalDimension.lean#L149) and [sheaf_cohomology_eq_zero_of_weight_lt_aleph](lean/Aoki/Sheaf/CardinalDimension.lean#L161). Their contrapositive is assembled in [Aoki.aoki_question_2_14_minimality](lean/Aoki/Main.lean#L47).
 
 ## 8. Formalization and verification
-
-### 8.1. Mathematical objects and Lean definitions
-
-| Mathematical object or assertion | Lean declaration |
-| --- | --- |
-| The explicit punctured quotient | [U](lean/Aoki/Topology/Quotient.lean#L163) |
-| Least cardinality of a topological basis | [weight](lean/Aoki/Topology/Weight.lean#L26) |
-| The constant coefficient sheaf | [constantF2Sheaf](lean/Aoki/Cech/Cocycle.lean#L119) |
-| The ordinary degree-one class | [degreeOneClass](lean/Aoki/Cech/NonzeroClass.lean#L51) |
-| The ordinary cup-product operation | [cupProduct](lean/Aoki/Cech/CupCohomology.lean#L118) |
-| Repeated degree-one cup powers | [cupPower](lean/Aoki/Cech/CupCohomology.lean#L127) |
-| Equality of the cup power with the explicit top class | [cupPower_degreeOneClass_top](lean/Aoki/Cech/CupNonvanishing.lean#L49) |
-| The complete existence theorem | [Aoki.aoki_question_2_14](lean/Aoki/Main.lean#L31) |
-| Universal size minimality | [Aoki.aoki_question_2_14_minimality](lean/Aoki/Main.lean#L47) |
-
-The code represents bits by Booleans and computes their sums and products in $`\mathbf F_2`$. A configuration indexed by $`r`$ has $`r+1`$ coordinates, numbered $`0,\ldots,r`$, and the function called “alternating” is $`F_r`$. Some helper proofs shift the index by one; the final theorem uses the same $`r`$ as Theorem 2.1.
-
-**Ordinary cohomology.** The formalization uses two versions of the resolution from Section 4: one resolving $`\underline{\mathbb Z}`$ in abelian sheaves, and one resolving $`\underline{\mathbf F}_2`$ in sheaves of $`\mathbf F_2`$-vector spaces. Both are proved projective and exact. Applying $`\mathrm{Hom}(-,\underline{\mathbf F}_2)`$ in the respective categories gives the same Čech cochains and differential. This yields the proved comparison [cupCohomologyAddEquiv](lean/Aoki/Cech/CupCohomology.lean#L86):
-
-```math
-H^k(U_r;\mathbf F_2)
-\cong
-\mathrm{Ext}^k_{\mathrm{Sh}_{\mathbf F_2}(U_r)}
-(\underline{\mathbf F}_2,\underline{\mathbf F}_2).
-```
-
-Here $`\mathrm{Sh}_{\mathbf F_2}(U_r)`$ denotes the category of sheaves of $`\mathbf F_2`$-vector spaces. The left side is Mathlib’s ordinary sheaf cohomology.
-
-**Cup products.** The Ext groups on the right have the Yoneda product, obtained by composing extension classes. We use the comparison above to define cup multiplication on ordinary cohomology. Lean verifies that the explicit lift in Section 5.2 computes this product, proving
-
-```math
-\eta_r^r=[F_r].
-```
-
-Thus the combinatorial nonvanishing argument proves nonvanishing of the cup power. The product is implemented through this construction; no independently defined Mathlib sheaf cup-product operation is invoked.
-
-**Scope.** The class $`\eta_r`$ is defined directly from its transition cocycle. The interpretation via classification of double covers is not formalized. For nonvanishing, Lean proves that every boundary has the decomposition described in Section 6.1, then rules out such a decomposition for $`F_r`$. No converse characterization of boundaries is needed.
-
-### 8.2. Reproducing the verification
 
 The project pins Lean v4.31.0 and Mathlib v4.31.0, with Mathlib commit
 
