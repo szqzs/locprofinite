@@ -30,7 +30,7 @@ Throughout, a *locally profinite Hausdorff space* means a locally compact, Hausd
 \eta_r^{r+1}=0.
 ```
 
-Moreover, $`H^q(U_r;\mathcal M)=0`$ for every abelian sheaf $`\mathcal M`$ and every $`q\gt r`$. Thus $`U_r`$ has cohomological dimension exactly $`r`$.
+Moreover, $`H^q(U_r;\mathcal M)=0`$ for every abelian sheaf $`\mathcal M`$ and every $`q\gt r`$. Thus $`U_r`$ has cohomological dimension $`r`$.
 
 **(ii) Optimality (Wiegand).** Every locally profinite Hausdorff space $`V`$ with $`H^r(V;\mathcal M)\neq 0`$ for some abelian sheaf $`\mathcal M`$ satisfies
 
@@ -76,7 +76,7 @@ The diagonal action is continuous. Its only fixed point is
 p=(\infty_0,\ldots,\infty_r).
 ```
 
-Indeed, any finite coordinate changes its bit. Let $`q:K\to\overline K=K/\langle\tau\rangle`$ be the orbit map, and define
+Any finite coordinate changes its bit. Let $`q:K\to\overline K=K/\langle\tau\rangle`$ be the orbit map, and define
 
 ```math
 U_r=\overline K\setminus\{q(p)\}.
@@ -117,9 +117,9 @@ A_k\times\prod_{i\in I\setminus\{k\}}(A_i\times\{0,1\})
 }_{\text{compact space}}.
 ```
 
-The inverse inserts the zero bit in coordinate $`k`$ and takes the orbit. The label space is discrete because it is a finite product of discrete spaces, and the remaining product is compact. Fixing one label therefore gives a compact-open subset of $`W_I`$, homeomorphic to $`\prod_{j\notin I}K_j`$. Since $`W_I`$ is open in $`U_r`$, each such piece is also open in $`U_r`$ and remains compact there. Different labels give disjoint pieces, and every point has exactly one label, so the pieces cover $`W_I`$. $`\square`$
+The inverse inserts the zero bit in coordinate $`k`$ and takes the orbit. The label space is discrete because it is a finite product of discrete spaces, and the remaining product is compact. Fixing one label therefore gives a compact-open subset of $`W_I`$, homeomorphic to $`\prod_{j\notin I}K_j`$. Since $`W_I`$ is open in $`U_r`$, each such piece is also open in $`U_r`$ and remains compact there. Different labels give disjoint pieces, and every point has a unique label, so the pieces cover $`W_I`$. $`\square`$
 
-**Lean.** The labels and cells are [GaugeLabel](lean/Aoki/Topology/Intersections.lean#L14) and [cellOpen](lean/Aoki/Topology/Intersections.lean#L151). Their properties are [cell_pairwiseDisjoint](lean/Aoki/Topology/Intersections.lean#L84), [cells_cover_intersection](lean/Aoki/Topology/Intersections.lean#L92), [isClopen_cell](lean/Aoki/Topology/Intersections.lean#L126), and [isCompact_cell](lean/Aoki/Topology/Intersections.lean#L130). The formal proof constructs these labeled compact-open pieces directly.
+**Lean.** The labels and cells are [GaugeLabel](lean/Aoki/Topology/Intersections.lean#L14) and [cellOpen](lean/Aoki/Topology/Intersections.lean#L151). Their properties are [cell_pairwiseDisjoint](lean/Aoki/Topology/Intersections.lean#L84), [cells_cover_intersection](lean/Aoki/Topology/Intersections.lean#L92), [isClopen_cell](lean/Aoki/Topology/Intersections.lean#L126), and [isCompact_cell](lean/Aoki/Topology/Intersections.lean#L130). The formal proof constructs these labeled compact-open pieces.
 
 ### 3.3. Cardinality and weight
 
@@ -149,7 +149,7 @@ For the reverse inequalities, consider the axis where all coordinates except coo
 |U_r|=w(U_r)=\aleph_r.
 ```
 
-**Lean.** The compact-space estimate is [weight_le_max_mk](lean/Aoki/Topology/CompactWeight.lean#L18). The discrete axis is [isEmbedding_axis](lean/Aoki/Topology/Axis.lean#L37). The final equalities are [mk_U](lean/Aoki/Topology/GeometrySize.lean#L52) and [weight_U](lean/Aoki/Topology/GeometrySize.lean#L74). Weight itself is defined in [weight](lean/Aoki/Topology/Weight.lean#L26) as the least basis cardinality.
+**Lean.** The compact-space estimate is [weight_le_max_mk](lean/Aoki/Topology/CompactWeight.lean#L18). The discrete axis is [isEmbedding_axis](lean/Aoki/Topology/Axis.lean#L37). The final equalities are [mk_U](lean/Aoki/Topology/GeometrySize.lean#L52) and [weight_U](lean/Aoki/Topology/GeometrySize.lean#L74). Weight is defined in [weight](lean/Aoki/Topology/Weight.lean#L26) as the least basis cardinality.
 
 ## 4. A finite projective resolution
 
@@ -161,7 +161,7 @@ Let $`X`$ be a space and $`j:W\hookrightarrow X`$ the inclusion of an open subse
 \mathrm{Hom}(P(W),\mathcal M)\cong\Gamma(W,\mathcal M).
 ```
 
-Thus a morphism from $`P(W)`$ to $`\mathcal M`$ is exactly a section of $`\mathcal M`$ over $`W`$. Inclusions of opens induce maps between these representing sheaves, and $`P(X)\cong\underline{\mathbb Z}_X`$. Similarly, for a commutative ring $`R`$, write $`P_R(W)=j_!\underline R_W`$ for the constant rank-one $`R`$-module sheaf on $`W`$, extended by zero to $`X`$.
+Thus a morphism from $`P(W)`$ to $`\mathcal M`$ corresponds to a section of $`\mathcal M`$ over $`W`$. Inclusions of opens induce maps between these representing sheaves, and $`P(X)\cong\underline{\mathbb Z}_X`$. Similarly, for a commutative ring $`R`$, write $`P_R(W)=j_!\underline R_W`$ for the constant rank-one $`R`$-module sheaf on $`W`$, extended by zero to $`X`$.
 
 **Lean.** The implementation constructs $`P(W)`$ by sheafifying the free abelian presheaf on the representable presheaf of $`W`$, and proves the same representing property. The integral representation and the identification at the whole space are [freeOpenHomEquiv](lean/Aoki/Sheaf/FreeOpen.lean#L33) and [freeOpenTopIso](lean/Aoki/Sheaf/FreeOpen.lean#L97). Their module counterparts are [freeOpenModuleHomEquiv](lean/Aoki/Sheaf/ModuleFreeOpen.lean#L31) and [freeOpenModuleTopIso](lean/Aoki/Sheaf/ModuleFreeOpen.lean#L97).
 
@@ -169,7 +169,7 @@ Thus a morphism from $`P(W)`$ to $`\mathcal M`$ is exactly a section of $`\mathc
 
 *Proof.* Projectivity means that, given an epimorphism of sheaves $`\varphi:\mathcal F\twoheadrightarrow\mathcal G`$, every morphism $`P(W)\to\mathcal G`$ lifts to a morphism $`P(W)\to\mathcal F`$. By the representing property above, this is equivalent to the following concrete claim: every section $`s\in\Gamma(W,\mathcal G)`$ has a lift $`t\in\Gamma(W,\mathcal F)`$ with $`\varphi(t)=s`$. We prove this claim.
 
-First suppose that $`W=K`$ is compact and open. An epimorphism of sheaves is surjective on stalks. Hence, for each $`x\in K`$, there is an open neighborhood $`V_x\subseteq K`$ on which $`s`$ has a lift $`t_x`$. Indeed, lift the germ of $`s`$ at $`x`$, represent the lifted germ by a local section, and shrink its neighborhood until its image agrees with $`s`$.
+First suppose that $`W=K`$ is compact and open. An epimorphism of sheaves is surjective on stalks. Hence, for each $`x\in K`$, there is an open neighborhood $`V_x\subseteq K`$ on which $`s`$ has a lift $`t_x`$. Lift the germ of $`s`$ at $`x`$, represent the lifted germ by a local section, and shrink its neighborhood until its image agrees with $`s`$.
 
 The space $`K`$ is compact, Hausdorff, and totally disconnected, so it has a basis of clopen subsets. We may therefore choose a clopen neighborhood $`C_x`$ of $`x`$ contained in $`V_x`$. Compactness gives finitely many of these neighborhoods, say $`C_1,\ldots,C_m`$, covering $`K`$. Each $`C_j`$ carries a chosen lift of $`s`$.
 
@@ -211,9 +211,9 @@ is a projective resolution. The analogous complex $`P_\bullet^R`$ resolves the c
 
 *Proof.* Projectivity follows from Lemma 4.1. For exactness, work at a point $`x`$. The stalk of $`P(W)`$ vanishes when $`x\notin W`$; if $`x\in V\subseteq W`$, the inclusion induces an isomorphism between the corresponding stalks. These stalk facts follow from the representing property and the stalk–skyscraper adjunction. Choose the least index $`a`$ with $`x\in W_a`$.
 
-Cone an increasing face to $`a`$: prepend $`a`$ when its first index is larger than $`a`$, using the inverse of the associated stalk inclusion, and put the contraction equal to zero otherwise. Faces with first index below $`a`$ have zero coefficient stalk. For the other faces, the usual alternating cancellations give $`dh+hd=1`$, with the augmentation section included in degree zero. This contracts the augmented stalk complex. Exactness of sheaves can be checked on stalks, so the augmented complex is exact. The module argument is identical. $`\square`$
+Cone an increasing face to $`a`$: prepend $`a`$ when its first index is larger than $`a`$, using the inverse of the associated stalk inclusion, and put the contraction equal to zero otherwise. Faces with first index below $`a`$ have zero coefficient stalk. For the other faces, the alternating cancellations give $`dh+hd=1`$, with the augmentation section included in degree zero. This contracts the augmented stalk complex. Exactness of sheaves can be checked on stalks, so the augmented complex is exact. The module argument is identical. $`\square`$
 
-**Lean.** The complex and its boundedness are [orderedComplex](lean/Aoki/Cech/OrderedComplex.lean#L161) and [orderedTerm_isZero](lean/Aoki/Cech/OrderedComplex.lean#L178). The contraction identities are [orderedContraction_identity](lean/Aoki/Cech/OrderedCone.lean#L194) and [orderedContraction_augmentation_identity](lean/Aoki/Cech/AugmentedCone.lean#L70). Their applicability at stalks is established in [StalkCone.lean](lean/Aoki/Cech/StalkCone.lean). The resulting actual projective-resolution objects are [freeOpenProjectiveResolution](lean/Aoki/Cech/SheafResolution.lean#L49) and [freeOpenModuleProjectiveResolution](lean/Aoki/Cech/ModuleSheafResolution.lean#L81).
+**Lean.** The complex and its boundedness are [orderedComplex](lean/Aoki/Cech/OrderedComplex.lean#L161) and [orderedTerm_isZero](lean/Aoki/Cech/OrderedComplex.lean#L178). The contraction identities are [orderedContraction_identity](lean/Aoki/Cech/OrderedCone.lean#L194) and [orderedContraction_augmentation_identity](lean/Aoki/Cech/AugmentedCone.lean#L70). Their applicability at stalks is established in [StalkCone.lean](lean/Aoki/Cech/StalkCone.lean). The projective resolutions are [freeOpenProjectiveResolution](lean/Aoki/Cech/SheafResolution.lean#L49) and [freeOpenModuleProjectiveResolution](lean/Aoki/Cech/ModuleSheafResolution.lean#L81).
 
 Applying $`\mathrm{Hom}(-,\mathcal M)`$ computes ordinary sheaf cohomology, since
 
@@ -232,7 +232,7 @@ H^q(U_r;\mathcal M)=0\qquad(q\gt r)
 
 for every abelian sheaf $`\mathcal M`$. With constant $`\mathbf F_2`$ coefficients, the degree-$`k`$ cochains are the locally constant functions on the $`W_I`$ with $`|I|=k+1`$.
 
-**Lean.** Ordinary cohomology is Mathlib’s actual sheaf-cohomology type. Its precise integral resolution is [quotientIntegralResolution](lean/Aoki/Cech/NonzeroClass.lean#L32); the all-coefficient vanishing is [quotient_sheaf_cohomology_eq_zero_above](lean/Aoki/Cech/NonzeroClass.lean#L70). Constant-sheaf sections are identified with locally constant functions by [constantSheafSectionAddEquiv](lean/Aoki/Sheaf/LocallyConstant.lean#L112).
+**Lean.** We use Mathlib’s sheaf-cohomology type. The integral resolution is [quotientIntegralResolution](lean/Aoki/Cech/NonzeroClass.lean#L32); the all-coefficient vanishing is [quotient_sheaf_cohomology_eq_zero_above](lean/Aoki/Cech/NonzeroClass.lean#L70). Constant-sheaf sections are identified with locally constant functions by [constantSheafSectionAddEquiv](lean/Aoki/Sheaf/LocallyConstant.lean#L112).
 
 ## 5. The degree-one class and its cup powers
 
@@ -248,9 +248,9 @@ E=K\setminus\{p\},
 
 for the quotient map, whose fibers consist of these pairs.
 
-On $`W_i`$, the $`i`$-th coordinate is finite. For a representative $`x`$, write this coordinate as $`x_i=(a_i,s_i)`$, where $`a_i\in A_i`$ and $`s_i\in\mathbf F_2=\{0,1\}`$. Thus $`s_i`$ is simply the bit in that coordinate. It belongs to the chosen representative: replacing $`x`$ by $`\tau x`$ changes $`s_i`$ to $`s_i+1`$.
+On $`W_i`$, the $`i`$-th coordinate is finite. For a representative $`x`$, write this coordinate as $`x_i=(a_i,s_i)`$, where $`a_i\in A_i`$ and $`s_i\in\mathbf F_2=\{0,1\}`$. Thus $`s_i`$ is the bit in that coordinate. It belongs to the chosen representative: replacing $`x`$ by $`\tau x`$ changes $`s_i`$ to $`s_i+1`$.
 
-Exactly one representative has $`i`$-th bit zero. Denote this choice by
+A unique representative has $`i`$-th bit zero. Denote this choice by
 
 ```math
 \ell_i:W_i\longrightarrow E,
@@ -270,7 +270,7 @@ z_{ij}(u)=
 \end{cases}
 ```
 
-To compute this function, take either representative $`x`$ of $`u`$ and read its two bits $`s_i,s_j`$. Obtaining $`\ell_i(u)`$ requires a flip precisely when $`s_i=1`$, and similarly for $`\ell_j(u)`$. The two choices therefore agree exactly when the bits agree. In arithmetic modulo two, this gives the formula
+To compute this function, take either representative $`x`$ of $`u`$ and read its two bits $`s_i,s_j`$. Obtaining $`\ell_i(u)`$ requires a flip if and only if $`s_i=1`$, and similarly for $`\ell_j(u)`$. The two choices therefore agree if and only if the bits agree. In arithmetic modulo two, this gives the formula
 
 ```math
 z_{ij}(u)=s_i+s_j\in\mathbf F_2.
@@ -278,7 +278,7 @@ z_{ij}(u)=s_i+s_j\in\mathbf F_2.
 
 The formula is independent of the representative, since $`(s_i+1)+(s_j+1)=s_i+s_j`$ in $`\mathbf F_2`$. It is also locally constant: on each compact-open piece of $`W_i\cap W_j`$ from Lemma 3.1, the representative with $`i`$-th bit zero has a fixed $`j`$-th bit, so $`z_{ij}`$ is constant there. Thus $`z_{ij}`$ is a section of the constant sheaf $`\mathbf F_2`$ on the overlap.
 
-On a triple overlap $`W_i\cap W_j\cap W_k`$, changing from the $`i`$-choice to the $`j`$-choice and then to the $`k`$-choice has the same effect as changing directly from the $`i`$-choice to the $`k`$-choice. Algebraically,
+On a triple overlap $`W_i\cap W_j\cap W_k`$, changing from the $`i`$-choice to the $`j`$-choice and then to the $`k`$-choice has the same effect as changing from the $`i`$-choice to the $`k`$-choice. Algebraically,
 
 ```math
 z_{ij}+z_{jk}
@@ -287,7 +287,7 @@ z_{ij}+z_{jk}
 =z_{ik}.
 ```
 
-A degree-one cochain in the ordered Čech complex is a family of sections on the pairwise overlaps, indexed by $`i\lt j`$. The functions $`z_{ij}`$ give such a cochain $`z`$, and the identity on triple overlaps is exactly the cocycle condition $`dz=0`$. Since Section 4.2 identifies the cohomology of this complex with ordinary sheaf cohomology, we obtain a class
+A degree-one cochain in the ordered Čech complex is a family of sections on the pairwise overlaps, indexed by $`i\lt j`$. The functions $`z_{ij}`$ give such a cochain $`z`$, and the identity on triple overlaps is the cocycle condition $`dz=0`$. Since Section 4.2 identifies the cohomology of this complex with ordinary sheaf cohomology, we obtain a class
 
 ```math
 \eta_r=[z]\in H^1(U_r;\mathbf F_2).
@@ -299,7 +299,7 @@ This constructs the class; Section 6 will prove that its $`r`$-th power is nonze
 
 ### 5.2. Computing multiplication by a chain lift
 
-We want explicit cocycles for the powers of $`\eta_r=[z]`$. The square has degree two, so it must be represented by functions on triple overlaps. The formula is
+We compute cocycles for the powers of $`\eta_r=[z]`$. The square has degree two, so it must be represented by functions on triple overlaps. The formula is
 
 ```math
 (z\smile z)_{ijk}=z_{ij}z_{jk}
@@ -315,7 +315,7 @@ Both functions are restricted to this common intersection before multiplication.
 
 Use the first two indices for the transition function and the remaining list for $`c`$, with the index $`i_1`$ shared by both. We will justify that this operation represents multiplication by $`\eta_r`$ in ordinary sheaf cohomology.
 
-Put $`R=\mathbf F_2`$. By Section 4, a degree-$`k`$ cochain is equivalently a map $`c:P_k^R\to\underline R`$ from the module resolution. Define $`L_k`$ on the summand indexed by $`[i_0,\ldots,i_{k+1}]`$ by multiplying by $`z_{i_0i_1}`$ and deleting the first index. The deletion uses the inclusion of the full intersection into the intersection with that index omitted. Multiplication is well-defined because $`z_{i_0i_1}`$ is locally constant. Following $`L_k`$ by $`c`$ gives exactly our rule:
+Put $`R=\mathbf F_2`$. By Section 4, a degree-$`k`$ cochain is equivalently a map $`c:P_k^R\to\underline R`$ from the module resolution. Define $`L_k`$ on the summand indexed by $`[i_0,\ldots,i_{k+1}]`$ by multiplying by $`z_{i_0i_1}`$ and deleting the first index. The deletion uses the inclusion of the full intersection into the intersection with that index omitted. Multiplication is well-defined because $`z_{i_0i_1}`$ is locally constant. Following $`L_k`$ by $`c`$ gives the rule above:
 
 ```math
 P_{k+1}^R\xrightarrow{L_k}P_k^R\xrightarrow{c}\underline R,
@@ -328,9 +328,9 @@ Let $`\varepsilon:P_0^R\to\underline R`$ be the augmentation, corresponding to t
 L_k\circ d_{k+1}=d_k\circ L_{k+1}.
 ```
 
-Indeed, expand the differential as a sum of index deletions. Terms deleting an index after the first two match; the first two terms combine using $`z_{i_1i_2}+z_{i_0i_2}=z_{i_0i_1}`$. Signs disappear over $`\mathbf F_2`$. These identities say that $`L`$ is a **chain lift** of $`z`$.
+Expand the differential as a sum of index deletions. Terms deleting an index after the first two match; the first two terms combine using $`z_{i_1i_2}+z_{i_0i_2}=z_{i_0i_1}`$. Signs disappear over $`\mathbf F_2`$. These identities say that $`L`$ is a **chain lift** of $`z`$.
 
-The differential identity ensures that $`T`$ sends cocycles to cocycles. The standard projective-resolution rule for the cup product then says that $`c\circ L_k`$ represents $`\eta_r\smile[c]`$. This is the Yoneda description of multiplication: lift one cocycle, then compose with the other.
+The differential identity ensures that $`T`$ sends cocycles to cocycles. The projective-resolution rule for the cup product then says that $`c\circ L_k`$ represents $`\eta_r\smile[c]`$. This is the Yoneda description of multiplication: lift one cocycle, then compose with the other.
 
 Starting with $`c_1=z`$ and applying $`T`$ repeatedly therefore gives
 
@@ -401,7 +401,7 @@ Here $`E`$ and $`c`$ may depend on the fixed coordinates $`(x_j)_{j\ne i}`$, but
 \iota:D_i^+\longrightarrow W_{\widehat i}.
 ```
 
-Indeed, all other coordinates remain finite, as required by $`W_{\widehat i}`$, and $`r\geq1`$ ensures that the tuple never becomes the removed all-infinite point. Continuity follows from the coordinate inclusion and the quotient map.
+All other coordinates remain finite, as required by $`W_{\widehat i}`$, and $`r\geq1`$ ensures that the tuple never becomes the removed all-infinite point. Continuity follows from the coordinate inclusion and the quotient map.
 
 The composite $`g=b_i\circ\iota:D_i^+\to\mathbf F_2`$ is continuous and agrees with the chosen slice of $`f_i`$ on $`D_i`$. Since $`\mathbf F_2`$ is discrete, $`g^{-1}(\{g(\infty)\})`$ is an open neighborhood of infinity. Such a neighborhood contains all but finitely many points of $`D_i`$. Taking those exceptional points as $`E`$ and $`c=g(\infty)`$ proves the claim. $`\square`$
 
@@ -423,7 +423,7 @@ This is a uniform choice over all $`y`$, rather than a separate choice for each 
 
 **Lemma 6.2.** For $`r\geq1`$, $`F_r`$ cannot be written as a sum $`\sum_{i=0}^{r}f_i`$ in which every $`f_i`$ is invariant under $`\sigma_r`$ and almost constant in coordinate $`i`$.
 
-*Proof.* We induct on $`r`$, starting at $`r=1`$. The main move is to evaluate a proposed decomposition twice, changing only the last bit, and add the equations. A suitable choice of the last label makes $`f_r`$ cancel. All additions below are in $`\mathbf F_2`$, so $`c+c=0`$.
+*Proof.* We induct on $`r`$, starting at $`r=1`$. We evaluate a proposed decomposition twice, changing only the last bit, and add the equations. A suitable choice of the last label makes $`f_r`$ cancel. All additions below are in $`\mathbf F_2`$, so $`c+c=0`$.
 
 Suppose that $`F_r=f_0+\cdots+f_r`$. Write an input as $`(y,(a,s))`$, where $`y\in C_{r-1}`$ contains the first $`r`$ coordinates and $`(a,s)\in A_r\times\mathbf F_2`$ is the last coordinate.
 
@@ -433,14 +433,14 @@ For each fixed $`y`$, almost constancy gives a finite set $`N_y\subseteq D_r`$ o
 |C_{r-1}|=\aleph_{r-1}\lt\aleph_r=|A_r|.
 ```
 
-Indeed, each $`y`$ excludes only the finitely many labels occurring in $`N_y`$, so together they exclude at most $`\aleph_{r-1}`$ labels. Choose $`a`$ outside all these exclusions. Then
+Each $`y`$ excludes the finitely many labels occurring in $`N_y`$, so together they exclude at most $`\aleph_{r-1}`$ labels. Choose $`a`$ outside all these exclusions. Then
 
 ```math
 f_r(y,(a,0))+f_r(y,(a,1))=0
 \qquad\text{for every }y\in C_{r-1}.
 ```
 
-The constant value may depend on $`y`$; cancellation only requires the two values at the same $`y`$ to agree.
+The constant value may depend on $`y`$; cancellation requires the two values at the same $`y`$ to agree.
 
 For $`i\lt r`$, put
 
@@ -519,7 +519,7 @@ Starting at $`r=1`$ is necessary: for $`r=0`$, the function $`F_0=1`$ already is
 
 ### 6.4. Conclusion of nonvanishing
 
-By Section 6.1, a top-degree boundary would give exactly a decomposition excluded by Lemma 6.2. Hence the cochain representing $`\eta_r^r`$ is not a boundary, and
+By Section 6.1, a top-degree boundary would give a decomposition excluded by Lemma 6.2. Hence the cochain representing $`\eta_r^r`$ is not a boundary, and
 
 ```math
 \eta_r^r\neq0.
@@ -527,13 +527,13 @@ By Section 6.1, a top-degree boundary would give exactly a decomposition exclude
 
 The resolution of Section 4 gives $`H^{r+1}(U_r;\mathbf F_2)=0`$, so $`\eta_r^{r+1}=0`$. Together with Section 3.3, this proves the existence and upper-vanishing assertions of Theorem 2.1.
 
-**Lean.** The cochain is proved not to be a boundary in [aleph_powerCochain_not_boundary](lean/Aoki/Cech/CochainValues.lean#L140), giving nonzero ordinary cohomology in [aleph_topPowerClass_ne_zero](lean/Aoki/Cech/NonzeroClass.lean#L62). The actual cup-power conclusions are [aleph_cupPower_ne_zero](lean/Aoki/Cech/CupNonvanishing.lean#L58) and [cupPower_next_eq_zero](lean/Aoki/Cech/CupNonvanishing.lean#L66).
+**Lean.** The cochain is proved not to be a boundary in [aleph_powerCochain_not_boundary](lean/Aoki/Cech/CochainValues.lean#L140), giving nonzero ordinary cohomology in [aleph_topPowerClass_ne_zero](lean/Aoki/Cech/NonzeroClass.lean#L62). The cup-power conclusions are [aleph_cupPower_ne_zero](lean/Aoki/Cech/CupNonvanishing.lean#L58) and [cupPower_next_eq_zero](lean/Aoki/Cech/CupNonvanishing.lean#L66).
 
 ## 7. The universal lower bound
 
 The all-coefficient vanishing bound used here is a **classical theorem of Roger Wiegand**. A locally compact, Hausdorff, totally disconnected space $`X`$ covered by at most $`\aleph_n`$ compact subsets satisfies $`H^d(X;\mathcal M)=0`$ for every abelian sheaf $`\mathcal M`$ and every $`d\gt n`$. See [Wiegand (1969), Theorem 2.3 and its proof in Section 3](https://doi.org/10.1307/mmj/1029000311); the result was announced in [Wiegand (1968), Theorem 3](https://doi.org/10.1090/S0002-9904-1968-12099-3).
 
-Every compact subset is contained in a finite union of compact opens, so the two cover bounds are equivalent here. We give a direct proof using compact-open covers and projective resolutions, matching the Lean formalization. Section 7.3 then deduces the lower bounds on cardinality and weight.
+Every compact subset is contained in a finite union of compact opens, so the two cover bounds are equivalent here. We give a proof using compact-open covers and projective resolutions, matching the Lean formalization. Section 7.3 then deduces the lower bounds on cardinality and weight.
 
 ### 7.1. Transfinite extensions preserve a projective-dimension bound
 
@@ -551,7 +551,7 @@ For an object $`Q`$, the condition $`\mathrm{Ext}^1(Q,Y)=0`$ is equivalent to ev
 
 At a successor stage, extend the preceding lift using injectivity of $`I`$. Its discrepancy from the desired map to $`C`$ vanishes on the preceding stage, so it factors through the successive quotient. Lift that discrepancy to $`I`$, and use it to correct the extension. At a limit stage, continuity of the filtration gives a unique map from the compatible earlier lifts. The colimit therefore admits a lift, proving $`\mathrm{Ext}^1(P,Y)=0`$.
 
-For higher positive degrees, dimension-shift in the coefficient variable using injective presentations. Vanishing of a fixed degree on all successive quotients becomes the degree-one vanishing condition just treated, and hence holds for $`P`$. Apply this in every degree $`d\gt n`$ for every coefficient object. $`\square`$
+For higher positive degrees, dimension-shift in the coefficient variable using injective presentations. Vanishing of a fixed degree on all successive quotients becomes the degree-one vanishing condition above, and hence holds for $`P`$. Apply this in every degree $`d\gt n`$ for every coefficient object. $`\square`$
 
 This proof uses the continuity of the given filtration; it does not require Ext to commute with arbitrary filtered colimits.
 
@@ -592,7 +592,7 @@ The binary Mayer–Vietoris sequence identifies the successive quotient $`Q_\alp
 \longrightarrow0.
 ```
 
-For completeness, this sequence comes from the exact sequence of free-open sheaves for two opens: on each stalk, the intersection maps into the sum of the two opens by the signed diagonal $`u\mapsto(u,-u)`$, and the next map adds the two inclusions into the union. Quotienting by the first open gives the displayed sequence.
+This sequence comes from the exact sequence of free-open sheaves for two opens: on each stalk, the intersection maps into the sum of the two opens by the signed diagonal $`u\mapsto(u,-u)`$, and the next map adds the two inclusions into the union. Quotienting by the first open gives the displayed sequence.
 
 Since $`\alpha\lt \omega_{n+1}`$, the cardinality of $`\alpha`$ is at most $`\aleph_n`$. Thus
 
@@ -658,7 +658,7 @@ lake build
 lake env lean AxiomAudit.lean
 ~~~
 
-The aggregate [Aoki.lean](lean/Aoki.lean) imports the complete local development: 64 modules under the Aoki directory, or 65 modules including the aggregate itself. The complete development builds, and [AxiomAudit.lean](lean/AxiomAudit.lean) reports only Lean’s standard axioms—propositional extensionality, classical choice, and quotient soundness—for the main statements and their principal bridges. There are no proof placeholders or added mathematical axioms. The commands and audit output are recorded in [verification.txt](lean/verification.txt).
+The aggregate [Aoki.lean](lean/Aoki.lean) imports the local development: 64 modules under the Aoki directory, or 65 modules including the aggregate. The development builds, and [AxiomAudit.lean](lean/AxiomAudit.lean) reports only Lean’s standard axioms—propositional extensionality, classical choice, and quotient soundness—for the main statements and their principal bridges. There are no proof placeholders or added mathematical axioms. The commands and audit output are recorded in [verification.txt](lean/verification.txt).
 
 This repository includes the exposition, Lean sources, and pinned dependency manifest. The [Lean project guide](lean/README.md) gives the source organization and build instructions. [GitHub Actions](.github/workflows/lean.yml) is configured to build the development and audit its axioms.
 
